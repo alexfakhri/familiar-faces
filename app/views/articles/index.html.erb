@@ -1,3 +1,9 @@
-No articles yet
+<% if Article.all.any? %>
+  <% Article.all.each do |article| %>
+    <h2><%= article.title %></h2>
+  <% end %>
+<% else %>
+  <h1>No articles yet</h1>
+<% end %>
 
-Add a new story
+<a href="#">Add a new story<a>
