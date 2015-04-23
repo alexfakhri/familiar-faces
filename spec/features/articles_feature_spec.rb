@@ -40,7 +40,18 @@ feature 'article' do
 
   end
 
+  context 'viewing articles' do
 
+    let!(:article){Article.create(title:'Awesome Story')}
+
+    scenario 'lets a user view an article' do
+      visit '/articles'
+      click_link "Awesome Story"
+      expect(page).to have_content "Awesome Story"
+      expect(current_path).to eq "/articles/#{article.id}"
+    end
+
+  end
 
 
 end
