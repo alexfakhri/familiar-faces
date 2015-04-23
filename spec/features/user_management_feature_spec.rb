@@ -27,6 +27,8 @@ feature 'users' do
     before do
       visit "/"
       click_link "Sign Up"
+      fill_in("First name", with: "Happy")
+      fill_in("Last name", with: "Panda")
       fill_in("Email", with: "panda@familarfaces.com")
       fill_in("Password", with: "happiness101")
       fill_in("Password confirmation", with: "happiness101")
