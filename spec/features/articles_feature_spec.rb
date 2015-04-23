@@ -32,13 +32,14 @@ feature 'article' do
         visit '/articles'
         click_link 'Add a new story'
         fill_in 'Title', with: 'One Awesome Story'
+        fill_in 'Story', with: 'Something amazing added here'
         click_button 'Add Story'
         expect(page).to have_content 'One Awesome Story'
         expect(current_path).to eq '/articles'
     end
 
   end
-
+  
 
 
 end

@@ -1,5 +1,7 @@
 <%= form_for @article do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label :story %>
+  <%= f.text_area :story %>
   <%= f.submit "Add Story" %>
 <% end %>
