@@ -1,5 +1,5 @@
-<% if Article.all.any? %>
-  <% Article.all.each do |article| %>
+<% if @articles.all.any? %>
+  <% @articles.all.each do |article| %>
     <h2><%= article.title %></h2>
   <% end %>
 <% else %>
