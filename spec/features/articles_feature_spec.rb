@@ -28,14 +28,26 @@ feature 'article' do
 
   context 'creating articles' do
 
-    scenario 'prompts a user to fill out a form, then displayes article' do
-        visit '/articles'
-        click_link 'Add a new story'
-        fill_in 'Title', with: 'One Awesome Story'
-        fill_in 'Story', with: 'Something amazing added here'
-        click_button 'Add Story'
+    before(:each) do
+      visit '/articles'
+      click_link 'Add a new story'
+      fill_in 'Title', with: 'One Awesome Story'
+      fill_in 'Story', with: 'Something amazing added here'
+      attach_file "article[photo]", "#{Rails.root}/public/images/test/test.jpg"
+      click_button 'Add Story'
+      click_link 'One Awesome Story'
+    end
+
+    scenario 'displays article title on show page' do
         expect(page).to have_content 'One Awesome Story'
-        expect(current_path).to eq '/articles'
+    end
+
+    scenario 'displays article story on show page' do
+        expect(page).to have_content 'Something amazing added here'
+    end
+
+    scenario 'displays article image on show page' do
+        expect(page).to have_css("img[alt=Test]")
     end
 
   end
