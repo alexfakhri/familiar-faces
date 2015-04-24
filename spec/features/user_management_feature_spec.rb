@@ -59,4 +59,37 @@ feature 'users' do
 
   end
 
+  context "a user can view their profile" do
+
+    before do
+      visit "/"
+      click_link "Sign Up"
+      fill_in("First name", with: "Happy")
+      fill_in("Last name", with: "Panda")
+      fill_in("Email", with: "panda@familarfaces.com")
+      fill_in("Password", with: "happiness101")
+      fill_in("Password confirmation", with: "happiness101")
+      click_button "Sign up"
+      click_link "Edit Profile"
+      fill_in("Bio", with: "I am a happy panda")
+      fill_in("Current password", with: "happiness101")
+      attach_file "user[avatar]", "#{Rails.root}/public/images/test/test.jpg"
+      click_button "Update"
+      click_link "View Profile"
+    end
+
+    scenario "displays the user name" do
+      expect(page).to have_content("Happy Panda")
+    end
+
+    scenario "displays the bio" do
+      expect(page).to have_content("I am a happy panda")
+    end
+
+    scenario "displays user avatar" do
+      expect(page).to have_css("img[alt=Test]")
+    end
+
+  end
+
 end

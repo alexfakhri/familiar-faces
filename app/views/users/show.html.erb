@@ -1,2 +1,4 @@
-<%= @user.bio %>
-<%= @user.first_name %>
+Name: <%= @user.first_name %> <%= @user.last_name %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+Bio: <%= @user.bio %>
