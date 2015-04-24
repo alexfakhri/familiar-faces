@@ -72,11 +72,25 @@ feature 'article' do
     scenario 'let a user edit an article' do
       visit '/articles'
       click_link 'Awesome Story'
-      click_link 'Edit Article'
+      click_link 'Edit Story'
       fill_in 'Title', with: 'This is an awesome story'
       click_button 'Update Story'
       expect(page).to have_content 'This is an awesome story'
       expect(current_path).to eq "/articles/#{article.id}"
+    end
+
+  end
+
+  context 'deleting articles' do
+
+    before {Article.create title: 'Awesome Story'}
+
+    scenario 'let a user delete an article' do
+      visit '/articles'
+      click_link 'Awesome Story'
+      click_link 'Delete Story'
+      expect(page).not_to have_content 'Awesome Story'
+      expect(page).to have_content 'Story deleted successfully'
     end
 
   end

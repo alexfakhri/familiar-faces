@@ -2,4 +2,5 @@
 <p><%= @article.story %></p>
 <%= image_tag @article.photo.url(:portrait) %>
 
-<%= link_to "Edit Article", edit_article_path(@article) %>
+<%= link_to "Edit Story", edit_article_path(@article) %>
+<%= link_to "Delete Story", article_path(@article), method: :delete %>
