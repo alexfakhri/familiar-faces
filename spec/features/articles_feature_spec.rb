@@ -65,5 +65,21 @@ feature 'article' do
 
   end
 
+  context 'editing articles' do
+
+    let!(:article){Article.create(title:'Awesome Story')}
+
+    scenario 'let a user edit an article' do
+      visit '/articles'
+      click_link 'Awesome Story'
+      click_link 'Edit Article'
+      fill_in 'Title', with: 'This is an awesome story'
+      click_button 'Update Story'
+      expect(page).to have_content 'This is an awesome story'
+      expect(current_path).to eq "/articles/#{article.id}"
+    end
+
+  end
+
 
 end
