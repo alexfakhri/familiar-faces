@@ -47,6 +47,16 @@ feature 'users' do
       expect(page).not_to have_link "Sign Up"
     end
 
+    scenario "a user can edit their profile" do
+      visit "/"
+      click_link "Edit Profile"
+      fill_in("Bio", with: "I am a happy panda")
+      fill_in("Current password", with: "happiness101")
+      click_button "Update"
+      click_link "View Profile"
+      expect(page).to have_content "I am a happy panda"
+    end
+
   end
 
 end
