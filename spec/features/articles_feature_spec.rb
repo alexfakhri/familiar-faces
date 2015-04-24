@@ -33,6 +33,7 @@ feature 'article' do
       click_link 'Add a new story'
       fill_in 'Title', with: 'One Awesome Story'
       fill_in 'Story', with: 'Something amazing added here'
+      fill_in 'Location', with: 'India'
       attach_file "article[photo]", "#{Rails.root}/public/images/test/test.jpg"
       click_button 'Add Story'
       click_link 'One Awesome Story'
@@ -48,6 +49,10 @@ feature 'article' do
 
     scenario 'displays article image on show page' do
       expect(page).to have_css("img[alt=Test]")
+    end
+
+    scenario 'displays article location on show page' do
+      expect(page).to have_content 'India'
     end
 
   end

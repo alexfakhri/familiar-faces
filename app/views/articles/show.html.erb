@@ -1,5 +1,6 @@
 <p><%= @article.title %></p>
 <p><%= @article.story %></p>
+<p><%= @article.location %></p>
 <%= image_tag @article.photo.url(:portrait) %>
 
 <%= link_to "Edit Story", edit_article_path(@article) %>
