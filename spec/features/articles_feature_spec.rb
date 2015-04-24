@@ -39,15 +39,15 @@ feature 'article' do
     end
 
     scenario 'displays article title on show page' do
-        expect(page).to have_content 'One Awesome Story'
+      expect(page).to have_content 'One Awesome Story'
     end
 
     scenario 'displays article story on show page' do
-        expect(page).to have_content 'Something amazing added here'
+      expect(page).to have_content 'Something amazing added here'
     end
 
     scenario 'displays article image on show page' do
-        expect(page).to have_css("img[alt=Test]")
+      expect(page).to have_css("img[alt=Test]")
     end
 
   end
