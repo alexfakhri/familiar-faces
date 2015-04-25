@@ -25,14 +25,12 @@ feature 'users' do
   context "user is signed in" do
 
     before do
+      @user = FactoryGirl.create(:user)
       visit "/"
-      click_link "Sign Up"
-      fill_in("First name", with: "Happy")
-      fill_in("Last name", with: "Panda")
-      fill_in("Email", with: "panda@familarfaces.com")
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
       fill_in("Password", with: "happiness101")
-      fill_in("Password confirmation", with: "happiness101")
-      click_button "Sign up"
+      click_button "Log in"
     end
 
     scenario "sign out link is displayed" do
@@ -62,14 +60,12 @@ feature 'users' do
   context "a user can view their profile" do
 
     before do
+      @user = FactoryGirl.create(:user)
       visit "/"
-      click_link "Sign Up"
-      fill_in("First name", with: "Happy")
-      fill_in("Last name", with: "Panda")
-      fill_in("Email", with: "panda@familarfaces.com")
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
       fill_in("Password", with: "happiness101")
-      fill_in("Password confirmation", with: "happiness101")
-      click_button "Sign up"
+      click_button "Log in"
       click_link "Edit Profile"
       fill_in("Bio", with: "I am a happy panda")
       fill_in("Current password", with: "happiness101")
