@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    Article.create(article_params)
+    @user = current_user
+    @user.articles.create(article_params)
     redirect_to "/articles"
   end
 

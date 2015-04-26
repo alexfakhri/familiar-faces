@@ -28,6 +28,15 @@ feature 'article' do
 
   context 'creating articles' do
 
+    before do
+      @user = FactoryGirl.create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
     before(:each) do
       visit '/articles'
       click_link 'Add a new story'
