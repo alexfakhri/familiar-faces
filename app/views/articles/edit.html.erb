@@ -5,6 +5,8 @@
   <%= f.text_field :location %>
   <%= f.label :story %>
   <%= f.text_area :story %>
+  <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+  <%= f.text_field :tag_list %>
   <%= f.file_field :photo %>
   <%= f.submit "Update Story" %>
 <% end %>

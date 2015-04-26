@@ -1,8 +1,12 @@
 class ArticlesController < ApplicationController
 
   def index
+  if params[:tag]
+    @articles = Article.tagged_with(params[:tag])
+  else
     @articles = Article.all
   end
+end
 
   def new
     @article = Article.new
@@ -37,7 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-  params.require(:article).permit(:title, :story, :photo, :location)
+  params.require(:article).permit(:title, :story, :photo, :location, :tag_list)
 end
 
 end
