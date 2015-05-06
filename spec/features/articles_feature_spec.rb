@@ -66,7 +66,9 @@ feature 'article' do
     end
 
     scenario 'displays article tags on show page' do
-      expect(page).to have_content 'Tokyo, Jaipur, London'
+      expect(page).to have_content 'London'
+      expect(page).to have_content 'Jaipur'
+      expect(page).to have_content 'Tokyo'
     end
 
     scenario 'displays tags on article index page' do
