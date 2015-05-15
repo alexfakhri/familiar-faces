@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
 
   has_many :articles
 
+  ROLES = %w[admin contributor]
+
 end
