@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
 
   before(:each) do
-    Article.create(title: "Awesome Story", story: "This is one awesome story")
+    article = create(:article)
   end
 
   it "has a title" do
