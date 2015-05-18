@@ -1,15 +1,20 @@
 class ArticlesController < ApplicationController
 
   def index
+  if params[:tag]
+    @articles = Article.tagged_with(params[:tag])
+  else
     @articles = Article.all
   end
+end
 
   def new
     @article = Article.new
   end
 
   def create
-    Article.create(article_params)
+    @user = current_user
+    @user.articles.create(article_params)
     redirect_to "/articles"
   end
 
@@ -36,7 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-  params.require(:article).permit(:title, :story, :photo, :location)
+  params.require(:article).permit(:title, :story, :photo, :location, :tag_list)
 end
 
 end
