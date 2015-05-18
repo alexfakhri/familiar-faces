@@ -38,44 +38,35 @@ feature 'article' do
     end
 
     before(:each) do
+      article = create(:article, :south_america)
       visit '/articles'
-      click_link 'Add a new story'
-      fill_in 'Title', with: 'One Awesome Story'
-      fill_in 'Story', with: 'Something amazing added here'
-      fill_in 'Location', with: 'India'
-      fill_in 'Tags', with: 'London, Jaipur, Tokyo'
-      attach_file "article[photo]", "#{Rails.root}/public/images/test/test.jpg"
-      click_button 'Add Story'
-      click_link 'One Awesome Story'
+      click_link 'Panda goes to Brazil'
+      # fill_in 'Tags', with: 'London, Jaipur, Tokyo'
     end
 
     scenario 'displays article title on show page' do
-      expect(page).to have_content 'One Awesome Story'
+      expect(page).to have_content 'Panda goes to Brazil'
     end
 
     scenario 'displays article story on show page' do
-      expect(page).to have_content 'Something amazing added here'
+      expect(page).to have_content 'A night out in Rio'
     end
 
     scenario 'displays article image on show page' do
-      expect(page).to have_css("img[alt=Test]")
+      expect(page).to have_css("img[alt=Panda]")
     end
 
     scenario 'displays article location on show page' do
-      expect(page).to have_content 'India'
+      expect(page).to have_content 'Brazil'
     end
 
     scenario 'displays article tags on show page' do
-      expect(page).to have_content 'London'
-      expect(page).to have_content 'Jaipur'
-      expect(page).to have_content 'Tokyo'
+      expect(page).to have_content 'South America'
     end
 
     scenario 'displays tags on article index page' do
       visit '/articles'
-      expect(page).to have_content 'London'
-      expect(page).to have_content 'Jaipur'
-      expect(page).to have_content 'Tokyo'
+      expect(page).to have_content 'South America'
     end
 
   end

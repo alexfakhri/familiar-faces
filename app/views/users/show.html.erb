@@ -1,5 +1,5 @@
 <h2>Name: <%= @user.first_name %> <%= @user.last_name %></h2>
-<%= image_tag @user.avatar.url(:thumb) %>
+<%= image_tag @user.avatar.url(:thumb), class: "avatar-image" %>
 
 <h4>Bio: <%= @user.bio %></h4>
 
