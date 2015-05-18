@@ -8,12 +8,12 @@ RSpec.describe Article, type: :model do
 
   it "has a title" do
     article = Article.last
-    expect(article.title).to eq "Awesome Story"
+    expect(article.title).to eq "Panda goes to Brazil"
   end
 
   it "has a story" do
     article = Article.last
-    expect(article.story).to eq "This is one awesome story"
+    expect(article.story).to eq "A night out in Rio"
   end
 
 end

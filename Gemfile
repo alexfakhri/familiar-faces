@@ -56,4 +56,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl'
+  gem 'faker'
+  gem 'warden', '~> 1.2.3'
+  gem 'database_cleaner'
 end
