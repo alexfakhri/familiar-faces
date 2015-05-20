@@ -95,6 +95,15 @@ feature 'article' do
 
   context 'editing articles' do
 
+    before do
+      @user = FactoryGirl.create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
     let!(:article){Article.create(title:'Awesome Story')}
 
     scenario 'let a user edit an article' do
@@ -110,6 +119,15 @@ feature 'article' do
   end
 
   context 'deleting articles' do
+
+    before do
+      @user = FactoryGirl.create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
 
     before {Article.create title: 'Awesome Story'}
 
