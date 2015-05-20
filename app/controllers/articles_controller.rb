@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
 
+  load_and_authorize_resource
+
+  before_action :authenticate_user!, :except => [:index, :show]
+
   def index
   if params[:tag]
     @articles = Article.tagged_with(params[:tag])

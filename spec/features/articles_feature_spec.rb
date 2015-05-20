@@ -69,6 +69,19 @@ feature 'article' do
       expect(page).to have_content 'South America'
     end
 
+    scenario 'displays article tags on show page' do
+      expect(page).to have_content 'London'
+      expect(page).to have_content 'Jaipur'
+      expect(page).to have_content 'Tokyo'
+    end
+
+    scenario 'displays tags on article index page' do
+      visit '/articles'
+      expect(page).to have_content 'London'
+      expect(page).to have_content 'Jaipur'
+      expect(page).to have_content 'Tokyo'
+    end
+
   end
 
   context 'viewing articles' do
@@ -86,6 +99,15 @@ feature 'article' do
 
   context 'editing articles' do
 
+    before do
+      @user = FactoryGirl.create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
     let!(:article){Article.create(title:'Awesome Story')}
 
     scenario 'let a user edit an article' do
@@ -101,6 +123,15 @@ feature 'article' do
   end
 
   context 'deleting articles' do
+
+    before do
+      @user = FactoryGirl.create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
 
     before {Article.create title: 'Awesome Story'}
 
