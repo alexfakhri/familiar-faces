@@ -7,6 +7,10 @@ Rails.application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
+  ActionMailer::Base.delivery_method = :test
+
+  config.action_mailer.default_url_options = { :host => "www.fammiliarfaces.co" }
+
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
   # preloads Rails for running tests, you may have to set it to true.
@@ -41,4 +45,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # config.action_mailer.delivery_method = :test
+
 end

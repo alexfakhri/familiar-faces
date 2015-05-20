@@ -25,25 +25,20 @@ feature 'users' do
   context "user is signed in" do
 
     before do
+      user = create(:user)
+      login_as user
       visit "/"
-      click_link "Sign Up"
-      fill_in("First name", with: "Happy")
-      fill_in("Last name", with: "Panda")
-      fill_in("Email", with: "panda@familarfaces.com")
-      fill_in("Password", with: "happiness101")
-      fill_in("Password confirmation", with: "happiness101")
-      click_button "Sign up"
     end
 
     scenario "sign out link is displayed" do
       expect(page).to have_link "Sign Out"
     end
 
-    scenario "sign in link are not displayed" do
+    scenario "sign in link is not displayed" do
       expect(page).not_to have_link "Sign In"
     end
 
-    scenario "sign up link are not displayed" do
+    scenario "sign up link is not displayed" do
       expect(page).not_to have_link "Sign Up"
     end
 
@@ -62,19 +57,10 @@ feature 'users' do
   context "a user can view their profile" do
 
     before do
+      user = create(:user)
+      brazil = create(:article)
+      login_as user
       visit "/"
-      click_link "Sign Up"
-      fill_in("First name", with: "Happy")
-      fill_in("Last name", with: "Panda")
-      fill_in("Email", with: "panda@familarfaces.com")
-      fill_in("Password", with: "happiness101")
-      fill_in("Password confirmation", with: "happiness101")
-      click_button "Sign up"
-      click_link "Edit Profile"
-      fill_in("Bio", with: "I am a happy panda")
-      fill_in("Current password", with: "happiness101")
-      attach_file "user[avatar]", "#{Rails.root}/public/images/test/test.jpg"
-      click_button "Update"
       click_link "View Profile"
     end
 
@@ -87,7 +73,11 @@ feature 'users' do
     end
 
     scenario "displays user avatar" do
-      expect(page).to have_css("img[alt=Test]")
+      expect(page).to have_css("img[alt=Panda]")
+    end
+
+    scenario "displays articles created by the user" do
+      expect(page).to have_content("Panda goes to Brazil")
     end
 
   end

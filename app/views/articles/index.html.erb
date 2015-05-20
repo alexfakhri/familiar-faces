@@ -1,3 +1,5 @@
+<%= link_to 'Add a new story', new_article_path  %>
+
 <% if @articles.all.any? %>
   <% @articles.all.each do |article| %>
     <h2><%= link_to article.title, article_path(article) %></h2>
@@ -6,4 +8,9 @@
   <h1>No articles yet</h1>
 <% end %>
 
-<%= link_to 'Add a new story', new_article_path  %>
+
+<div id="tag_cloud">
+  <% tag_cloud @articles.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>

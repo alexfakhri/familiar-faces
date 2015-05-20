@@ -27,6 +27,10 @@ gem 'devise'
 
 gem 'paperclip'
 
+gem 'acts-as-taggable-on'
+
+gem 'aws-sdk', '< 2.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,4 +55,8 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'factory_girl'
+  gem 'faker'
+  gem 'warden', '~> 1.2.3'
+  gem 'database_cleaner'
 end
