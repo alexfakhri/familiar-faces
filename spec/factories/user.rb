@@ -12,6 +12,10 @@ FactoryGirl.define do
     avatar {fixture_file_upload( File.join(Rails.root, 'spec', 'helpers', 'images', 'panda.jpg'), 'image/jpeg')}
     confirmed_at          Time.now
     initialize_with {User.find_or_create_by(first_name: 'Happy')}
-
   end
+
+  factory :admin_user, parent: :user do
+    after(:build) { |user| user.role = 'admin' }
+  end
+
 end

@@ -69,19 +69,6 @@ feature 'article' do
       expect(page).to have_content 'South America'
     end
 
-    scenario 'displays article tags on show page' do
-      expect(page).to have_content 'London'
-      expect(page).to have_content 'Jaipur'
-      expect(page).to have_content 'Tokyo'
-    end
-
-    scenario 'displays tags on article index page' do
-      visit '/articles'
-      expect(page).to have_content 'London'
-      expect(page).to have_content 'Jaipur'
-      expect(page).to have_content 'Tokyo'
-    end
-
   end
 
   context 'viewing articles' do
@@ -97,7 +84,7 @@ feature 'article' do
 
   end
 
-  context 'editing articles' do
+  context 'contributors editing articles' do
 
     before do
       @user = FactoryGirl.create(:user)
@@ -110,19 +97,16 @@ feature 'article' do
 
     let!(:article){Article.create(title:'Awesome Story')}
 
-    scenario 'let a user edit an article' do
+    scenario 'does not let a contributor edit an article' do
       visit '/articles'
       click_link 'Awesome Story'
       click_link 'Edit Story'
-      fill_in 'Title', with: 'This is an awesome story'
-      click_button 'Update Story'
-      expect(page).to have_content 'This is an awesome story'
-      expect(current_path).to eq "/articles/#{article.id}"
+      expect(page).to have_content 'You must be an Admin user to do this'
     end
 
   end
 
-  context 'deleting articles' do
+  context 'contributors deleting articles' do
 
     before do
       @user = FactoryGirl.create(:user)
@@ -135,7 +119,56 @@ feature 'article' do
 
     before {Article.create title: 'Awesome Story'}
 
-    scenario 'let a user delete an article' do
+    scenario 'does not let a contirbutor delete an article' do
+      visit '/articles'
+      byebug
+      click_link 'Awesome Story'
+      click_link 'Delete Story'
+      expect(page).to have_content 'You must be an Admin user to do this'
+    end
+
+  end
+
+  context 'admin users editing articles' do
+
+    before do
+      @user = FactoryGirl.create(:admin_user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+      byebug
+    end
+
+    let!(:article){Article.create(title:'Awesome Story')}
+
+    scenario 'lets an admin user edit an article' do
+      visit '/articles'
+      click_link 'Awesome Story'
+      click_link 'Edit Story'
+      fill_in 'Title', with: 'This is an awesome story'
+      click_button 'Update Story'
+      expect(page).to have_content 'This is an awesome story'
+      expect(current_path).to eq "/articles/#{article.id}"
+    end
+
+  end
+
+  context 'admin user deleting articles' do
+
+    before do
+      @admin = FactoryGirl.create(:admin_user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
+    before {Article.create title: 'Awesome Story'}
+
+    scenario 'lets an admin user delete an article' do
       visit '/articles'
       click_link 'Awesome Story'
       click_link 'Delete Story'

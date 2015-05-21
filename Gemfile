@@ -57,6 +57,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'byebug'
   gem 'factory_girl'
   gem 'faker'
   gem 'warden', '~> 1.2.3'
