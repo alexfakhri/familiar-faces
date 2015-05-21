@@ -5,7 +5,7 @@ FactoryGirl.define do
 
     first_name            "Happy"
     last_name             "Panda"
-    email                 Faker::Internet.email
+    email                 "panda@familiarfaces.co"
     password              "happiness101"
     password_confirmation "happiness101"
     bio                   "I am a happy panda"
@@ -14,7 +14,7 @@ FactoryGirl.define do
     initialize_with {User.find_or_create_by(first_name: 'Happy')}
   end
 
-  factory :admin_user, parent: :user do
+  trait :admin_user do
     after(:build) { |user| user.role = 'admin' }
   end
 
