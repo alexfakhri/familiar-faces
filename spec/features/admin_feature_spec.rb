@@ -20,6 +20,25 @@ feature 'admin user' do
 
   end
 
+  context 'contributor viewing the admin page' do
+
+    before do
+      @user = FactoryGirl.create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
+    scenario 'contributor user should be able to view the admin page' do
+      visit "/admin"
+      expect(page).to have_content "You must be an Admin user to do this"
+      expect(current_path).to eq "/"
+    end
+
+  end
+
   context 'viewing articles on the admin page' do
 
     before do
@@ -36,25 +55,6 @@ feature 'admin user' do
     scenario 'lets a user view an article' do
       visit '/admin'
       expect(page).to have_content "Awesome Story"
-    end
-
-  end
-
-  context 'contributor viewing the admin page' do
-
-    before do
-      @user = FactoryGirl.create(:user)
-      visit "/"
-      click_link "Sign In"
-      fill_in("Email", with: "panda@familiarfaces.co")
-      fill_in("Password", with: "happiness101")
-      click_button "Log in"
-    end
-
-    scenario 'contributor user should be able to view the admin page' do
-      visit "/admin"
-      expect(page).to have_content "You must be an Admin user to do this"
-      expect(current_path).to eq "/"
     end
 
   end
