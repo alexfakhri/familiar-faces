@@ -20,6 +20,26 @@ feature 'admin user' do
 
   end
 
+  context 'viewing articles on the admin page' do
+
+    before do
+      @user = FactoryGirl.create(:user, :admin_user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
+    before {Article.create title: 'Awesome Story'}
+
+    scenario 'lets a user view an article' do
+      visit '/admin'
+      expect(page).to have_content "Awesome Story"
+    end
+
+  end
+
   context 'contributor viewing the admin page' do
 
     before do
