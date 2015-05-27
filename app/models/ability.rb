@@ -9,10 +9,10 @@ class Ability
 
       if @user.role == "admin"
         can :manage, :all
-        can [:update, :destroy], [Article]
+        # can [:update, :destroy], [Article]
       elsif @user.role == "contributor"
         can :create, [Article]
-        can :read, :all
+        can :read, [Article, User]
       else
         can :read, :all
       end

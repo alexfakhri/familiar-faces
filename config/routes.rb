@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'articles#index', as: :tag
 
-  resources :articles
+  resources :articles, :admin
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]
