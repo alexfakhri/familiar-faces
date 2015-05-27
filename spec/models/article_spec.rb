@@ -16,4 +16,16 @@ RSpec.describe Article, type: :model do
     expect(article.story).to eq "A night out in Rio"
   end
 
+  it "has a location" do
+    article = Article.last
+    expect(article.location).to eq "Brazil"
+  end
+
+  it "has an image" do
+    article = Article.last
+    expect(article.photo_file_name).to eq "panda.jpg"
+  end
+
+
+
 end

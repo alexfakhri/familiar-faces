@@ -73,8 +73,7 @@ feature 'admin user' do
     let!(:article){Article.create(title:'Awesome Story')}
 
     scenario 'lets an admin user edit an article' do
-      visit '/articles'
-      click_link 'Awesome Story'
+      visit '/admin'
       click_link 'Edit Story'
       fill_in 'Title', with: 'This is an awesome story'
       click_button 'Update Story'
@@ -98,8 +97,7 @@ feature 'admin user' do
     before {Article.create title: 'Awesome Story'}
 
     scenario 'lets an admin user delete an article' do
-      visit '/articles'
-      click_link 'Awesome Story'
+      visit '/admin'
       click_link 'Delete Story'
       expect(page).not_to have_content 'Awesome Story'
       expect(page).to have_content 'Story deleted successfully'
