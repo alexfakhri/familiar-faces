@@ -26,6 +26,10 @@ RSpec.describe Article, type: :model do
     expect(article.photo_file_name).to eq "panda.jpg"
   end
 
+  it "has visibility set to false by default" do
+    article = Article.last
+    expect(article.visibility).to eq false
+  end
 
 
 end
