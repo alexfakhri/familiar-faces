@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   if params[:tag]
     @articles = Article.tagged_with(params[:tag])
   else
-    @articles = Article.all
+    @articles = Article.where(visibility: true)
   end
 end
 
