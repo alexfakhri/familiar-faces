@@ -1,0 +1,18 @@
+<% @articles.each do |article| %>
+<section class="article">
+  <h3 class="article-title"><%= article.title %></h3>
+  <div class="article-image"><%= image_tag article.photo.url %></div>
+</section>
+<section class="story">
+  <h4 class="story-title">Story</h4>
+  <p class="story-details"><%= article.story %></p>
+</section>
+<section class="map">
+  <h4 class="map-image">MAP</h4>
+</section>
+<section class="profile">
+  <h4 class="profile-title">Photographer Profile</h4>
+  <p class="profile-name"><%= article.user.first_name %> <%= article.user.last_name %></p>
+  <p class="profile-bio"><%= article.user.bio %></p>
+</section>
+<% end %>

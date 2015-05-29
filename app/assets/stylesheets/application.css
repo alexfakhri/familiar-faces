@@ -13,3 +13,112 @@
  *= require_tree .
  *= require_self
  */
+/*===========NAVBAR-DESKTOP===========*/
+#title {
+  text-align: center;
+}
+nav {
+  height: 6rem;
+  width: 100%;
+  background: lightgrey;
+  font-family: 'PT Sans', Helvetica, sans-serif;
+  position: relative;
+  border-bottom: 2px solid lightgrey;
+}
+nav ul {
+  padding: 0;
+  margin: 0 auto;
+  width: 100rem;
+  height: 6rem;
+}
+nav li {
+  display: inline;
+  float: left;
+  padding: 0 1em;
+  margin: 0 1em;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+nav a {
+  color: #fff;
+  display: inline-block;
+  width: 8rem;
+  text-align: center;
+  text-decoration: none;
+  line-height: 6rem;
+}
+nav a:hover, nav a:active {
+    background-color: grey;
+    text-decoration: none;
+    color: black;
+}
+nav a#pull {
+    display: none;
+}
+/*===========NAVBAR-UNDER-600PX===========*/
+@media screen and (max-width: 600px) {
+  nav {
+    height: auto;
+  }
+  nav ul {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+  nav li {
+    width: 40%;
+    float: left;
+    position: relative;
+  }
+  nav a {
+    text-align: left;
+    width: 100%;
+    text-indent: 25px;
+  }
+}
+/*===========NAVBAR-UNDER-480PX===========*/
+@media only screen and (max-width : 480px) {
+  nav {
+    border-bottom: 0;
+  }
+  nav ul {
+    display: none;
+    height: auto;
+  }
+  nav a#pull {
+    display: block;
+    background-color: lightgrey;
+    width: 100%;
+    position: relative;
+  }
+  nav a#pull:after {
+    content:"";
+    background: url('nav-icon.png') no-repeat;
+    width: 3em;
+    height: 3em;
+    display: inline-block;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+  }
+}
+/*===========NAVBAR-UNDER-320PX===========*/
+@media only screen and (max-width : 320px) {
+  nav li {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  nav li a {
+    border-bottom: 1px solid #576979;
+  }
+}
