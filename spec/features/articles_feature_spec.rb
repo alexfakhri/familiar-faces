@@ -87,7 +87,7 @@ feature 'article' do
   context 'contributors editing articles' do
 
     before do
-      @user = FactoryGirl.create(:user)
+      @user = create(:user)
       visit "/"
       click_link "Sign In"
       fill_in("Email", with: "panda@familiarfaces.co")
@@ -100,6 +100,7 @@ feature 'article' do
     scenario 'does not let a contributor edit an article' do
       visit '/articles'
       click_link 'Awesome Story'
+      p @user.role
       click_link 'Edit Story'
       expect(page).to have_content 'You must be an Admin user to do this'
     end
