@@ -33,6 +33,8 @@ gem 'aws-sdk', '< 2.0'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'best_in_place'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -60,4 +62,5 @@ group :test do
   gem 'factory_girl'
   gem 'warden', '~> 1.2.3'
   gem 'database_cleaner'
+  gem 'poltergeist', '~> 1.6.0'
 end

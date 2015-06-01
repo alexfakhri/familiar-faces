@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :show]
 
+  respond_to :html, :json
+
   def index
   if params[:tag]
     @articles = Article.tagged_with(params[:tag])
@@ -34,7 +36,7 @@ end
     @article = Article.find(params[:id])
     @article.update(article_params)
 
-    redirect_to article_path
+    respond_with @article
   end
 
   def destroy
@@ -45,7 +47,7 @@ end
   end
 
   def article_params
-  params.require(:article).permit(:title, :story, :photo, :location, :tag_list)
+  params.require(:article).permit(:title, :story, :photo, :location, :tag_list, :visibility)
 end
 
 end
