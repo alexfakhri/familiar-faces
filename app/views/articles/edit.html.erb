@@ -8,5 +8,6 @@
   <%= f.label :tag_list, "Tags (separated by commas)" %><br />
   <%= f.text_field :tag_list %>
   <%= f.file_field :photo %>
+  <%= f.select :image_orientation, Article::IMAGE_ORIENTATION %>
   <%= f.submit "Update Story" %>
 <% end %>

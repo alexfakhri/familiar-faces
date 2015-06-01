@@ -7,12 +7,12 @@ class ArticlesController < ApplicationController
   respond_to :html, :json
 
   def index
-  if params[:tag]
-    @articles = Article.tagged_with(params[:tag])
-  else
-    @articles = Article.where(visibility: true)
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag])
+    else
+      @articles = Article.where(visibility: true)
+    end
   end
-end
 
   def new
     @article = Article.new
@@ -47,7 +47,7 @@ end
   end
 
   def article_params
-  params.require(:article).permit(:title, :story, :photo, :location, :tag_list, :visibility)
+  params.require(:article).permit(:title, :story, :photo, :location, :tag_list, :visibility, :image_orientation)
 end
 
 end
