@@ -1,11 +1,11 @@
-<body class="landscape_layout">
+<section class="landscape_layout">
 
-<p><%= @article.title %></p>
-<p><%= @article.story %></p>
-<p><%= @article.location %></p>
-<%= @article.image_orientation %>
-<%= image_tag @article.photo.url(:landscape) %>
+  <p><%= @article.title %></p>
+  <p><%= @article.story %></p>
+  <p><%= @article.location %></p>
+  <%= @article.image_orientation %>
+  <%= image_tag @article.photo.url(:landscape) %>
 
-Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+  Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 
-</body>
+</section>
