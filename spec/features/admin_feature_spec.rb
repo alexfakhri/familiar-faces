@@ -128,9 +128,7 @@ feature 'admin user' do
     scenario 'and article should be punlished on click of checkbox', js: true do
       visit '/admin'
       expect(page).to have_content("Not Published")
-      save_and_open_page
       bip_bool @article, :visibility
-      save_and_open_page
       expect(page).to have_content("Published")
     end
 
