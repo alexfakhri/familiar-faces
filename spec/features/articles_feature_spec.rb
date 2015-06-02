@@ -98,4 +98,32 @@ feature 'article' do
 
   end
 
+  context 'selecting image orientation and rendering templates' do
+
+    before do
+      @user = FactoryGirl.create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
+    scenario 'when selecting portrait it should render the portrait template' do
+      article = create(:article, :south_america, :portrait)
+      visit '/articles'
+      click_link "Panda goes to Brazil"
+      save_and_open_page
+      expect(page).to have_css("portrait_layout")
+    end
+
+    scenario 'when selecting portrait it should render the portrait template' do
+      article = create(:article, :south_america, :landscape)
+      visit '/articles'
+      click_link "Panda goes to Brazil"
+      page.should have_css "landscape_layout"
+    end
+
+  end
+
 end

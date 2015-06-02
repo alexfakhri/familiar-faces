@@ -11,5 +11,13 @@ FactoryGirl.define do
       after(:create) { |article| article.update_attributes(tag_list: 'South America', visibility: true) }
     end
 
+    trait :portrait do
+      after(:create) { |article| article.update_attributes(image_orientation: 'portrait') }
+    end
+
+    trait :landscape do
+      after(:create) { |article| article.update_attributes(image_orientation: 'landscape') }
+    end
+
   end
 end
