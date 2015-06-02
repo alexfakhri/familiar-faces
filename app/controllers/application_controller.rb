@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url, :alert => "You must be an Admin user to do this"
   end
 
+  def display
+    @results = Article.all
+  end
+
 end
