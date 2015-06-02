@@ -11,26 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514183658) do
+ActiveRecord::Schema.define(version: 20150601043059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.text     "story"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.text     "location"
-    t.integer  "article_id"
     t.integer  "user_id"
+    t.boolean  "visibility",         default: false
+    t.string   "image_orientation"
   end
 
-  add_index "articles", ["article_id"], name: "index_articles_on_article_id", using: :btree
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
@@ -83,6 +83,5 @@ ActiveRecord::Schema.define(version: 20150514183658) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "articles", "articles"
   add_foreign_key "articles", "users"
 end

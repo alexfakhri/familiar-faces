@@ -105,4 +105,34 @@ feature 'admin user' do
 
   end
 
+  context 'admin user deleting articles' do
+
+    before do
+      @admin = FactoryGirl.create(:user, :admin_user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
+    before do
+      @article = Article.create title: 'Awesome Story'
+    end
+
+    scenario 'and article should not be punlished when created' do
+      visit '/admin'
+      expect(page).to have_content "Not Published"
+    end
+
+    # scenario 'and article should be punlished on click of checkbox', js: true do
+    #   visit '/admin'
+    #   expect(page).to have_content("Not Published")
+    #   bip_bool @article, :published
+    #   save_and_open_page
+    #   expect(page).to have_content("published")
+    # end
+
+  end
+
 end

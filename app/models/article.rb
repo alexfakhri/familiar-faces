@@ -7,4 +7,6 @@ class Article < ActiveRecord::Base
 
   acts_as_taggable
 
+  IMAGE_ORIENTATION = %w[portrait landscape]
+
 end
