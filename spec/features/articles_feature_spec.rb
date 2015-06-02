@@ -112,7 +112,6 @@ feature 'article' do
       article = create(:article, :south_america)
       visit '/articles'
       click_link "Panda goes to Brazil"
-      save_and_open_page
       expect(page).to have_css(".portrait_layout")
     end
 
