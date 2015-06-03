@@ -1,3 +1,1 @@
-function HelloController($scope) {
-  $scope.greeting = { text: 'Hello' };
-}
+var familiarFaces = angular.module('familiarFaces', []);

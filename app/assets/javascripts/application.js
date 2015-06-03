@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require jquery.purr
 //= require best_in_place
+//= require angular/angular
 //= require familiarFacesApp
-//= require turbolinks
 //= require_tree .
 
 $(function() {
