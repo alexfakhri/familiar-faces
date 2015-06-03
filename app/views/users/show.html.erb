@@ -4,5 +4,5 @@
 <h4>Bio: <%= @user.bio %></h4>
 
 <h4>Articles: </h4><% @user.articles.each do |article| %>
-            <li><%= article.title %></li>
+            <li><%= link_to article.title, article_path(article) %></li>
           <% end %>

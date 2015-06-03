@@ -97,6 +97,32 @@ feature 'article' do
 
   end
 
+  context 'Viewing articles should show the photographers profile' do
+
+    before do
+      @user = create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
+    before(:each) do
+      article = create(:article, :south_america)
+      visit '/articles'
+      click_link 'Panda goes to Brazil'
+    end
+
+    scenario 'lets a user view an article with the profile of the photographer' do
+      visit '/articles'
+      click_link "Panda goes to Brazil"
+      expect(page).to have_content "Panda goes to Brazil"
+      expect(page).to have_content "Happy Panda"
+    end
+
+  end
+
   context 'selecting image orientation and rendering templates' do
 
     before do

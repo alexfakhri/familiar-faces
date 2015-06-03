@@ -68,9 +68,11 @@ feature 'admin user' do
       fill_in("Email", with: "panda@familiarfaces.co")
       fill_in("Password", with: "happiness101")
       click_button "Log in"
+      visit '/articles'
+      click_link 'Add a new story'
+      fill_in 'Title', with: 'Awesome story'
+      click_button 'Add Story'
     end
-
-    let!(:article){Article.create(title:'Awesome Story')}
 
     scenario 'lets an admin user edit an article' do
       visit '/admin'
@@ -78,7 +80,6 @@ feature 'admin user' do
       fill_in 'Title', with: 'This is an awesome story'
       click_button 'Update Story'
       expect(page).to have_content 'This is an awesome story'
-      expect(current_path).to eq "/articles/#{article.id}"
     end
 
   end

@@ -8,4 +8,11 @@
 
   Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 
+  <section class="profile">
+    <h4 class="profile-title">Photographer Profile</h4>
+    <p class="profile-name"><%= @article.user.first_name %> <%= @article.user.last_name %></p>
+    <p class="profile-bio"><%= @article.user.bio %></p>
+    <p class="profile-photo"><%= image_tag @article.user.avatar.url(:thumb), class: "avatar-image" %></p>
+  </section>
+
 </section>
