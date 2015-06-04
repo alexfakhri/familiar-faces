@@ -18,7 +18,7 @@
 #title {
   text-align: center;
 }
-nav {
+/*nav {
   height: 6rem;
   width: 100%;
   background: lightgrey;
@@ -64,9 +64,9 @@ nav a:hover, nav a:active {
 }
 nav a#pull {
     display: none;
-}
+}*/
 /*===========NAVBAR-UNDER-600PX===========*/
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
   nav {
     height: auto;
   }
@@ -111,9 +111,9 @@ nav a#pull {
     right: 1em;
     top: 1em;
   }
-}
+}*/
 /*===========NAVBAR-UNDER-320PX===========*/
-@media only screen and (max-width : 320px) {
+/*@media only screen and (max-width : 320px) {
   nav li {
     display: block;
     float: none;
@@ -122,4 +122,4 @@ nav a#pull {
   nav li a {
     border-bottom: 1px solid #576979;
   }
-}
+}*/

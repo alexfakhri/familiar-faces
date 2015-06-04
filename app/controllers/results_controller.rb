@@ -1,11 +1,13 @@
 class ResultsController < ApplicationController
 
   def index
-    render json: Article.where(visibility: true)
+    @articles = Article.where(visibility: true)
+    render json: @articles.to_json(include: [:user])
   end
 
   def show
-    render json: Article.find(params[:id])
+    @article = Article.find(params[:id])
+    render json: @article.to_json(include: [:user])
   end
 
 end
