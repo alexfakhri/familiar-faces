@@ -1,1 +1,1 @@
-var familiarFaces = angular.module('familiarFaces', []);
+var familiarFaces = angular.module('familiarFaces', ['ngResource']);

@@ -15,8 +15,9 @@
 //= require jquery.purr
 //= require best_in_place
 //= require angular/angular
+//= require angular-resource/angular-resource
 //= require familiarFacesApp
-//= require_tree .
+//= require_tree ./angular
 
 $(function() {
     var pull        = $('#pull');
