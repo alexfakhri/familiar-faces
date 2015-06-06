@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.purr
 //= require best_in_place
+//= require disqus_rails
 //= require turbolinks
 //= require_tree .
 
