@@ -15,4 +15,13 @@
     <p class="profile-photo"><%= image_tag @article.user.avatar.url(:thumb), class: "avatar-image" %></p>
   </section>
 
+
+  <h3>Related Articles</h3>
+  <% @related_articles.each do | related_article | %>
+    <% if !related_article.nil? %>
+    <%= link_to related_article.title, article_path(related_article) %>
+    <%= image_tag related_article.photo.url(:portrait) %>
+    <% end %>
+  <% end %>
+
 </section>

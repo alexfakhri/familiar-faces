@@ -150,4 +150,28 @@ feature 'article' do
 
   end
 
+  context 'displaying related articles on article pages' do
+
+    before do
+      @user = create(:user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
+    end
+
+    before do
+      create(:article, :south_america)
+    end
+
+    scenario 'articles with the same tags should on the show pages of similar articles' do
+      article = create(:article, :south_america, title: "Similar article")
+      visit '/articles'
+      click_link "Panda goes to Brazil"
+      expect(page).to have_content "Similar article"
+    end
+
+  end
+
 end
