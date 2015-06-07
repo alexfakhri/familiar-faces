@@ -1,10 +1,3 @@
-<!-- <p><%= @article.title %></p>
-<p><%= @article.story %></p>
-<p><%= @article.location %></p>
-<%= image_tag @article.photo.url(:portrait) %>
-
-Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> -->
-
 <% if @article.image_orientation == 'landscape' %>
   <%= render template: 'articles/landscape' %>
 <% else @article.image_orientation == 'portrait' %>

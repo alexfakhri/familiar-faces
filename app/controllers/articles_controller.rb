@@ -26,7 +26,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    # @related_articles = Article.tagged_with(@article.tag_list, any: true)
     @related_articles = Article
       .joins(:taggings)
       .where('articles.id != ?', @article.id)
