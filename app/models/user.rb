@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 
   ROLES = %w[admin contributor]
 
+  subscribe_to "Contributor Email List", :using => { :api_key => ENV['MAILCHIMP_API_KEY'],
+                                        :email => :email,
+                                        :fields => {:FNAME => :first_name, :LNAME => :last_name}}
+
 end

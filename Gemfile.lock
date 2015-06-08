@@ -91,6 +91,7 @@ GEM
       activesupport (>= 3.0.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    hominid (3.0.5)
     i18n (0.7.0)
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
@@ -106,6 +107,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mailchimp_subscriber (0.1.22)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.6.0)
@@ -226,9 +228,11 @@ DEPENDENCIES
   devise
   disqus_rails
   factory_girl
+  hominid
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mailchimp_subscriber
   paperclip
   pg
   poltergeist (~> 1.6.0)
