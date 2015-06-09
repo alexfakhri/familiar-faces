@@ -31,7 +31,7 @@ feature 'admin user' do
       click_button "Log in"
     end
 
-    scenario 'contributor user should be able to view the admin page' do
+    scenario 'contributor user should not be able to view the admin page' do
       visit "/admin"
       expect(page).to have_content "You must be an Admin user to do this"
       expect(current_path).to eq "/"
@@ -106,7 +106,7 @@ feature 'admin user' do
 
   end
 
-  context 'admin user deleting articles' do
+  context 'admin user publishing articles' do
 
     before do
       @admin = FactoryGirl.create(:user, :admin_user)

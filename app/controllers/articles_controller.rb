@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     flash[:notice] = 'Story deleted successfully'
-    redirect_to articles_path
+    redirect_to :back
   end
 
   def article_params

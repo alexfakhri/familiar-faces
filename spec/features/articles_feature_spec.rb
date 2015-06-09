@@ -14,14 +14,18 @@ feature 'article' do
 
   context 'articles that have been added should not be approved' do
 
-    before do
-      create(:article, visibility: false)
-    end
+      let!(:article){create(:article, visibility: false)}
 
     scenario 'article should not be displaying' do
       visit '/articles'
       expect(page).not_to have_content 'Panda goes to Brazil'
       expect(page).to have_content 'No articles yet'
+    end
+
+    scenario 'article page should not be accessible through the URL' do
+      visit "/articles/#{article.id}"
+      expect(page).to have_content 'Article not published yet'
+      expect(current_path).to eq '/'
     end
 
   end
@@ -173,5 +177,7 @@ feature 'article' do
     end
 
   end
+
+
 
 end
