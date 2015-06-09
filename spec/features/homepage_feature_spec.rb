@@ -9,7 +9,8 @@ feature 'homepage' do
       visit "/"
     end
 
-    scenario "displays a list of articles" do
+    scenario "displays a list of articles when visibility is true" do
+      byebug
       expect(page).to have_content "Panda goes to Brazil"
     end
   end

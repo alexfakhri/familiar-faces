@@ -8,7 +8,9 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:tag]
-      @articles = Article.tagged_with(params[:tag])
+      @articles = Article
+        .where(visibility: true)
+        .tagged_with(params[:tag])
     else
       @articles = Article.where(visibility: true)
     end
@@ -25,11 +27,26 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @user = current_user
+
+    if @article.visibility == true
+      @article = Article.find(params[:id])
+    elsif @user == nil
+      flash[:notice] = 'Article not published yet'
+      redirect_to '/'
+    elsif @user.role == "admin"
+      @article = Article.find(params[:id])
+    else
+      flash[:notice] = 'Article not published yet'
+      redirect_to '/'
+    end
+
     @related_articles = Article
+      .where(visibility: true)
       .joins(:taggings)
       .where('articles.id != ?', @article.id)
       .where(taggings: { tag_id: @article.tag_ids })
+
   end
 
   def edit
