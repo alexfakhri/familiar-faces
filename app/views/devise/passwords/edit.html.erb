@@ -1,4 +1,14 @@
-<h2>Change your password</h2>
+<section class="devise-headers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="devise-headers-heading">Change your password</h2>
+                <hr class="light">
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
