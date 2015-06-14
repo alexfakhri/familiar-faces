@@ -4,6 +4,8 @@ class AdminController < ApplicationController
 
   def index
     @articles = Article.all
+    @published_articles = Article.where(visibility: true)
+    @unpublished_articles = Article.where(visibility: false)
   end
 
 end

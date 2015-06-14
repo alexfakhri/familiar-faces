@@ -13,3 +13,16 @@
   border: solid 2px #C66;
   &:first-letter { text-transform: uppercase; }
 }
+
+
+.admin-panel {
+    background-color: #095b7a;
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.admin-panel-heading {
+    margin-top: 0;
+    color: white;
+    font-weight: 700;
+}

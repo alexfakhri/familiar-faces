@@ -77,18 +77,18 @@ header .header-content .header-content-inner hr {
 }
 
 
-.article {
+/*.article {
   border: 1px solid black;
   height: 20rem;
   margin: 1rem;
-}
+}*/
 .article-title {
-  text-align: center;
+  text-align: left;
 }
 .article-image {
   text-align: center;
 }
-.story {
+/*.story {
   width: 40%;
   margin: 1rem;
   border: 1px solid black;
@@ -98,8 +98,4 @@ header .header-content .header-content-inner hr {
   width: 40%;
   margin: 1rem;
   border: 1px solid black;
-}
-
-.map {
-
-}
+}*/

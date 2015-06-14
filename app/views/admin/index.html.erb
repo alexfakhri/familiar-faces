@@ -1,6 +1,64 @@
-Admin Panel
+<section class="admin-panel" id="admin-panel">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="admin-panel-heading">Admin Panel</h2>
+                <hr class="light">
+            </div>
+        </div>
+    </div>
+</section>
 
-<% if @articles.all.any? %>
+<section class="published-articles">
+    <div class="container">
+      <h2>Unpublished Articles</h2>
+      <% if @unpublished_articles.all.any? %>
+      <% @unpublished_articles.all.each do |article| %>
+      <div class="row">
+  <div class="col-xs-6 col-sm-7"><p>
+    <%= link_to article.title, article_path(article) %></p>
+    </div>
+  <div class="col-xs-6 col-sm-2">
+    <%= best_in_place article, :visibility, as: :checkbox, collection: {true: "Published", false: "Not Published"} %>
+    </div>
+  <div class="col-xs-6 col-sm-3">
+    <p><%= link_to "Edit Story", edit_article_path(article) %>
+      <%= link_to "Delete Story", article_path(article), method: :delete %></p></div>
+  </div>
+  <% end %>
+    <% else %>
+    <h1>No articles yet</h1>
+  <% end %>
+    </div>
+</section>
+
+
+<section class="published-articles">
+    <div class="container">
+      <h2>Published Articles</h2>
+      <% if @published_articles.all.any? %>
+      <% @published_articles.all.each do |article| %>
+      <div class="row">
+  <div class="col-xs-6 col-sm-7"><p>
+    <%= link_to article.title, article_path(article) %></p>
+    </div>
+  <div class="col-xs-6 col-sm-2">
+    <%= best_in_place article, :visibility, as: :checkbox, collection: {true: "Published", false: "Not Published"} %>
+    </div>
+  <div class="col-xs-6 col-sm-3">
+    <p><%= link_to "Edit Story", edit_article_path(article) %>
+      <%= link_to "Delete Story", article_path(article), method: :delete %></p></div>
+  </div>
+  <% end %>
+    <% else %>
+    <h1>No articles yet</h1>
+  <% end %>
+    </div>
+</section>
+
+
+
+<!-- <% if @articles.all.any? %>
   <% @articles.all.each do |article| %>
     <p><%= link_to article.title, article_path(article) %>
 
@@ -11,4 +69,4 @@ Admin Panel
   <% end %>
 <% else %>
   <h1>No articles yet</h1>
-<% end %>
+<% end %> -->
