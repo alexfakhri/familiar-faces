@@ -1,3 +1,30 @@
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Uncovering the amazing stories of everyday people</h1>
+            <hr>
+            <a href="/about" class="btn btn-primary btn-xl">Find Out More</a>
+            <a href="/about" class="btn btn-primary btn-xl">Find Out More</a>
+        </div>
+    </div>
+</header>
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="about-section-heading">About</h2>
+                <hr class="light">
+                <p class="text-faded">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</p>
+                <a href="/about" class="btn btn-default btn-xl">Find Out More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 <section class="article">
 <% @articles.each do |article| %>
   <h3 class="article-title"><%= link_to article.title, article_path(article) %></h3>
