@@ -1,31 +1,12 @@
 <% @articles.each do |article| %>
-<section class="article col-md-12">
-  <h3 class="article-title"><%= article.title %></h3>
   <div class="article-image"><%= image_tag article.photo.url %></div>
-</section>
-<section class="col-md-12">
-  <section class="story col-md-6">
-    <h4 class="story-title">Story</h4>
-    <p class="story-details"><%= article.story %></p>
-  </section>
-  <section class="col-md-6">
-    <section class="map col-md-12">
-      <h4 class="map-image">MAP</h4>
-    </section>
-    <section class="profile col-md-12">
-      <h4 class="profile-title">Photographer Profile</h4>
-      <p class="profile-name"><%= article.user.first_name %> <%= article.user.last_name %></p>
-      <p class="profile-bio"><%= article.user.bio %></p>
-    </section>
-  </section>
-</section>
 <% end %>
 
 <section ng-controller="ArticlesCtrl">
   <section ng-repeat="article in articles | filter:query">
     <section class="article col-md-12">
       <h3 class="article-title">{{article.title}}</h3>
-      <div class="article-image">image goes here</div>
+      <div class="article-image">IMAGE: {{article.photo_file_name}}</div>
     </section>
     <section class="col-md-12">
       <section class="story col-md-6">

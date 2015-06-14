@@ -7,7 +7,7 @@ class ResultsController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    render json: @article.to_json(include: [:user])
+    render json: @article.to_json
   end
 
 end
