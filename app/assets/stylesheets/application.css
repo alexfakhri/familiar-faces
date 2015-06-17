@@ -21,7 +21,7 @@
  }
 
  body {
-     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
  }
 
  hr {
@@ -52,7 +52,7 @@
  h4,
  h5,
  h6 {
-     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+     font-family: 'Raleway', sans-serif;
  }
 
  p {
@@ -73,6 +73,10 @@
  section {
      padding: 50px 0;
  }
+
+ .container {
+     text-align: -webkit-center
+  }
 
  aside {
      padding: 50px 0;
