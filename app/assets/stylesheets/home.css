@@ -99,3 +99,21 @@ header .header-content .header-content-inner hr {
   margin: 1rem;
   border: 1px solid black;
 }*/
+
+#articles-grid {
+  margin: 0 auto;
+  width: 100%;
+  .box {
+	  margin: 10px;
+	  width: 350px;
+	  text-align: center;
+	  img {
+	  	max-width: 100%;
+	  	height: auto;
+	  }
+	}
+}
+
+.panel {
+  margin: 0px 0px 0px 0px;
+}

@@ -108,6 +108,8 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mailchimp_subscriber (0.1.22)
+    masonry-rails (0.2.4)
+      railties
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.6.0)
@@ -233,6 +235,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mailchimp_subscriber
+  masonry-rails
   paperclip
   pg
   poltergeist (~> 1.6.0)

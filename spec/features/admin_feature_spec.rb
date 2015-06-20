@@ -121,12 +121,12 @@ feature 'admin user' do
       @article = Article.create title: 'Awesome Story'
     end
 
-    scenario 'and article should not be punlished when created' do
+    scenario 'and article should not be published when created' do
       visit '/admin'
       expect(page).to have_content "Not Published"
     end
 
-    scenario 'and article should be punlished on click of checkbox', js: true do
+    scenario 'and article should be published on click of checkbox', js: true do
       visit '/admin'
       expect(page).to have_content("Not Published")
       bip_bool @article, :visibility

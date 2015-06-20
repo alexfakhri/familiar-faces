@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require masonry/jquery.masonry
 //= require jquery.purr
 //= require best_in_place
 //= require disqus_rails
@@ -23,4 +24,14 @@
 $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
+});
+
+
+$(function() {
+  return $('#articles-grid').imagesLoaded(function() {
+    return $('#articles-grid').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    });
+  });
 });

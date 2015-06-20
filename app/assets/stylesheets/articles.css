@@ -22,3 +22,12 @@
     color: white;
     font-weight: 700;
 }
+
+
+.landscape_layout img {
+  max-width: 100%;
+}
+
+.profile img {
+  max-width: 50%;
+}

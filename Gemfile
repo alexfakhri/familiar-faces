@@ -40,6 +40,8 @@ gem 'disqus_rails'
 gem 'hominid'
 gem 'mailchimp_subscriber'
 
+gem 'masonry-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
