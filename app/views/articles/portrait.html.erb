@@ -1,9 +1,32 @@
+<section class="articles-heading" id="articles-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="articles-heading"><%= @article.title %></h2>
+                <hr class="light">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <section class="portrait_layout">
 
-  <p><%= @article.title %></p>
-  <p><%= @article.story %></p>
-  <p><%= @article.location %></p>
-  <%= image_tag @article.photo.url(:portrait) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <%= image_tag @article.photo.url(:portrait), class: "img-responsive" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <p><%= @article.story %></p>
+        <p><%= @article.location %></p>
+        <p>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+      </div>
+    </div>
+  </div>
+
+
+
 
   Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 

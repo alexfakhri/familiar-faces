@@ -1,3 +1,15 @@
+<section class="articles-heading" id="articles-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="articles-heading">Tell a Story...</h2>
+                <hr class="light">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <%= form_for [@user, @article], html: {multipart: true} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>

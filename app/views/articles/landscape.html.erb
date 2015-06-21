@@ -1,8 +1,8 @@
-<section class="landscape-article" id="landscape-article">
+<section class="articles-heading" id="articles-heading">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="landscape-heading"><%= @article.title %></h2>
+                <h2 class="articles-heading"><%= @article.title %></h2>
                 <hr class="light">
             </div>
         </div>
@@ -15,7 +15,7 @@
 <section class="landscape_layout container">
 
 
-  <%= image_tag @article.photo.url %>
+  <%= image_tag @article.photo.url, class: "img-responsive" %>
 
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
