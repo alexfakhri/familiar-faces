@@ -37,6 +37,17 @@
     <p class="profile-photo"><%= image_tag @article.user.avatar.url(:thumb), class: "avatar-image" %></p>
   </section>
 
+  <div id='map'>
+    <script>
+      var map;
+      $(document).ready(function(){
+        div: '#map',
+        lat: -12.043333,
+        lng: -77.028333
+      });
+    </script>
+  </div>
+
   <h3>Related Articles</h3>
   <% @related_articles.each do | related_article | %>
     <% if !related_article.nil? %>

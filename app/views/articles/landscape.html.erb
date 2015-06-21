@@ -24,7 +24,18 @@
     <p>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
   </div>
   <div class="col-sm-6 col-md-6">
-    Map
+    <div id='map'>
+      <script>
+        $(document).ready(function(){
+          new GMaps({
+            div: '#map',
+            lat: -12.043333,
+            lng: -77.028333
+          });
+        });
+      </script>
+    </div>
+
   <section class="profile">
     <h3 class="profile-title">Photographer Profile</h3>
       <p class="profile-name"><%= @article.user.first_name %> <%= @article.user.last_name %></p>
@@ -38,8 +49,6 @@
     </div>
   </div>
 </section>
-
-
 
 <section class="container">
   <h3>Related Articles</h3>
