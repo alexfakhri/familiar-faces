@@ -34,3 +34,9 @@
 .profile img {
   max-width: 50%;
 }
+
+.new-story {
+  margin-top: 20px;
+  text-align: center;
+  width: 50%;
+}

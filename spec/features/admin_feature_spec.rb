@@ -50,7 +50,7 @@ feature 'admin user' do
       click_button "Log in"
     end
 
-    before {Article.create title: 'Awesome Story'}
+    before {Article.create title: 'Awesome Story', location: 'India'}
 
     scenario 'lets a user view an article' do
       visit '/admin'
@@ -71,6 +71,7 @@ feature 'admin user' do
       visit '/articles'
       click_link 'Add a new story'
       fill_in 'Title', with: 'Awesome story'
+      fill_in 'Location', with: 'India'
       click_button 'Add Story'
     end
 
@@ -95,7 +96,7 @@ feature 'admin user' do
       click_button "Log in"
     end
 
-    before {Article.create title: 'Awesome Story'}
+    before {Article.create title: 'Awesome Story', location: 'India'}
 
     scenario 'lets an admin user delete an article' do
       visit '/admin'
@@ -118,7 +119,7 @@ feature 'admin user' do
     end
 
     before do
-      @article = Article.create title: 'Awesome Story'
+      @article = Article.create(title: 'Awesome Story', location: 'India')
     end
 
     scenario 'and article should not be published when created' do

@@ -70,4 +70,5 @@ group :test do
   gem 'warden', '~> 1.2.3'
   gem 'database_cleaner'
   gem 'poltergeist', '~> 1.6.0'
+  gem 'rspec-collection_matchers'
 end
