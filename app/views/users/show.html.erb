@@ -15,6 +15,6 @@
 
 <h4>Bio: <%= @user.bio %></h4>
 
-<h4>Articles: </h4><% @user.articles.each do |article| %>
+<h4>Articles: </h4><% @article.each do |article| %>
             <li><%= link_to article.title, article_path(article) %></li>
           <% end %>
