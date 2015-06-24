@@ -56,7 +56,6 @@ feature 'admin user' do
 
     scenario 'lets a user view an article' do
       visit '/admin'
-      save_and_open_page
       expect(page).to have_content "Panda goes to Brazil"
     end
 
@@ -114,7 +113,7 @@ feature 'admin user' do
   context 'admin user publishing articles' do
 
     before do
-      create(:article, visibility: false)
+      @article = create(:article, visibility: false)
     end
 
     before do
@@ -124,15 +123,14 @@ feature 'admin user' do
       fill_in("Email", with: "panda@familiarfaces.co")
       fill_in("Password", with: "happiness101")
       click_button "Log in"
+      visit '/admin'
     end
 
     scenario 'and article should not be published when created' do
-      visit '/admin'
       expect(page).to have_content "Not Published"
     end
 
     scenario 'and article should be published on click of checkbox', js: true do
-      visit '/admin'
       expect(page).to have_content("Not Published")
       bip_bool @article, :visibility
       expect(page).to have_content("Published")
