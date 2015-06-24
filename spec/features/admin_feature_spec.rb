@@ -42,6 +42,10 @@ feature 'admin user' do
   context 'viewing articles on the admin page' do
 
     before do
+      create(:article)
+    end
+
+    before do
       @user = FactoryGirl.create(:user, :admin_user)
       visit "/"
       click_link "Sign In"
@@ -50,12 +54,9 @@ feature 'admin user' do
       click_button "Log in"
     end
 
-    before do
-      create(:article)
-    end
-
     scenario 'lets a user view an article' do
       visit '/admin'
+      save_and_open_page
       expect(page).to have_content "Panda goes to Brazil"
     end
 
@@ -127,7 +128,6 @@ feature 'admin user' do
 
     scenario 'and article should not be published when created' do
       visit '/admin'
-      save_and_open_page
       expect(page).to have_content "Not Published"
     end
 
