@@ -34,3 +34,9 @@
 .profile img {
   max-width: 50%;
 }
+
+#map {
+  display: block;
+  width: 100rem;
+  height: 100rem;
+}

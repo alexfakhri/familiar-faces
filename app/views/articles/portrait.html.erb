@@ -38,15 +38,16 @@
   </section>
 
   <div id='map'>
+  </div>
+  <h2>There should be a map above me</h2>
+
     <script>
-      var map;
-      $(document).ready(function(){
+      var map = new GMaps({
         div: '#map',
         lat: -12.043333,
         lng: -77.028333
       });
     </script>
-  </div>
 
   <h3>Related Articles</h3>
   <% @related_articles.each do | related_article | %>

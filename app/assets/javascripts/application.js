@@ -16,8 +16,8 @@
 //= require jquery.purr
 //= require best_in_place
 //= require disqus_rails
-//= require gmaps
 //= require turbolinks
+//= require gmaps
 //= require_tree .
 
 
