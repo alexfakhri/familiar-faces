@@ -40,7 +40,7 @@
   <div class="transitions-enabled" id="articles-grid">
     <% @articles.each do |article| %>
       <div class="box panel panel-default">
-        <%= link_to (image_tag article.photo.url(:portrait)), article %>
+        <%= link_to (image_tag article.photo.url(:homepage)), article %>
         <!-- <h2>
           <%= link_to article.title, article_path(article) %>
         </h2> -->
