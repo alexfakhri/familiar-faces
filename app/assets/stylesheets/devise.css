@@ -17,14 +17,15 @@
 
 .sign-up-form {
   text-align: center;
+  width: 30%;
 }
 
 
 .form-control {
-  margin: 10px;
+  margin: 10px 0px 10px 0px;
 }
 
-.form-group .btn {
+.form-group .btn-default {
   color: #fff;
   background-color: #095b7a;
   border-color: #095b7a;
@@ -34,4 +35,19 @@
 
 .form-group .btn-default {
   padding: 6px 50px 6px 50px;
+}
+
+.edit-form {
+  text-align: center;
+  width: 30%;
+}
+
+.confirmation-form {
+  text-align: center;
+  width: 30%;
+}
+
+.new-password-form {
+  text-align: center;
+  width: 30%;
 }

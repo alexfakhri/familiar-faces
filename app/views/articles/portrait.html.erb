@@ -49,6 +49,8 @@
       });
     </script>
 
+
+<section class="container">
   <h3>Related Articles</h3>
   <% @related_articles.each do | related_article | %>
     <% if !related_article.nil? %>
@@ -56,7 +58,10 @@
     <%= image_tag related_article.photo.url(:portrait) %>
     <% end %>
   <% end %>
+</section>
 
+<section class="container">
+  
   <%- disqus_thread @article.id %>
 
 </section>

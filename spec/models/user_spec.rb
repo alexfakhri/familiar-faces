@@ -38,4 +38,16 @@ RSpec.describe User, type: :model do
     expect(user.role).to eq("admin")
   end
 
+  it 'must enter a first name' do
+    user = User.new(last_name: "panda")
+    expect(user).to have(1).error_on(:first_name)
+    expect(user).not_to be_valid
+  end
+
+  it 'must enter a lanst name' do
+    user = User.new(first_name: "pop")
+    expect(user).to have(1).error_on(:last_name)
+    expect(user).not_to be_valid
+  end
+
 end

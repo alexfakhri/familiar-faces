@@ -42,24 +42,8 @@ feature 'admin user' do
   context 'viewing articles on the admin page' do
 
     before do
-      @user = FactoryGirl.create(:user, :admin_user)
-      visit "/"
-      click_link "Sign In"
-      fill_in("Email", with: "panda@familiarfaces.co")
-      fill_in("Password", with: "happiness101")
-      click_button "Log in"
+      create(:article)
     end
-
-    before {Article.create title: 'Awesome Story'}
-
-    scenario 'lets a user view an article' do
-      visit '/admin'
-      expect(page).to have_content "Awesome Story"
-    end
-
-  end
-
-  context 'admin users editing articles' do
 
     before do
       @user = FactoryGirl.create(:user, :admin_user)
@@ -68,10 +52,28 @@ feature 'admin user' do
       fill_in("Email", with: "panda@familiarfaces.co")
       fill_in("Password", with: "happiness101")
       click_button "Log in"
-      visit '/articles'
-      click_link 'Add a new story'
-      fill_in 'Title', with: 'Awesome story'
-      click_button 'Add Story'
+    end
+
+    scenario 'lets a user view an article' do
+      visit '/admin'
+      expect(page).to have_content "Panda goes to Brazil"
+    end
+
+  end
+
+  context 'admin users editing articles' do
+
+    before do
+      create(:article)
+    end
+
+    before do
+      @user = FactoryGirl.create(:user, :admin_user)
+      visit "/"
+      click_link "Sign In"
+      fill_in("Email", with: "panda@familiarfaces.co")
+      fill_in("Password", with: "happiness101")
+      click_button "Log in"
     end
 
     scenario 'lets an admin user edit an article' do
@@ -87,6 +89,10 @@ feature 'admin user' do
   context 'admin user deleting articles' do
 
     before do
+      create(:article)
+    end
+
+    before do
       @admin = FactoryGirl.create(:user, :admin_user)
       visit "/"
       click_link "Sign In"
@@ -95,12 +101,10 @@ feature 'admin user' do
       click_button "Log in"
     end
 
-    before {Article.create title: 'Awesome Story'}
-
     scenario 'lets an admin user delete an article' do
       visit '/admin'
       click_link 'Delete Story'
-      expect(page).not_to have_content 'Awesome Story'
+      expect(page).not_to have_content 'Panda goes to Brazil'
       expect(page).to have_content 'Story deleted successfully'
     end
 
@@ -109,25 +113,24 @@ feature 'admin user' do
   context 'admin user publishing articles' do
 
     before do
+      @article = create(:article, visibility: false)
+    end
+
+    before do
       @admin = FactoryGirl.create(:user, :admin_user)
       visit "/"
       click_link "Sign In"
       fill_in("Email", with: "panda@familiarfaces.co")
       fill_in("Password", with: "happiness101")
       click_button "Log in"
-    end
-
-    before do
-      @article = Article.create title: 'Awesome Story'
+      visit '/admin'
     end
 
     scenario 'and article should not be published when created' do
-      visit '/admin'
       expect(page).to have_content "Not Published"
     end
 
     scenario 'and article should be published on click of checkbox', js: true do
-      visit '/admin'
       expect(page).to have_content("Not Published")
       bip_bool @article, :visibility
       expect(page).to have_content("Published")

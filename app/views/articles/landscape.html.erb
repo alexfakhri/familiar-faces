@@ -10,8 +10,6 @@
 </section>
 
 
-
-
 <section class="landscape_layout container">
 
 
@@ -58,7 +56,9 @@
     <%= image_tag related_article.photo.url(:portrait) %>
     <% end %>
   <% end %>
+</section>
 
+<section class="container">
   <%- raw disqus_thread @article.id %>
 
 </section>

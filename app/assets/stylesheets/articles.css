@@ -35,8 +35,16 @@
   max-width: 50%;
 }
 
+
 #map {
   display: block;
   width: 100rem;
   height: 100rem;
+}
+
+.new-story {
+  margin-top: 20px;
+  text-align: center;
+  width: 50%;
+
 }

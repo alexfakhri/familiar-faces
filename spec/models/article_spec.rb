@@ -31,5 +31,22 @@ RSpec.describe Article, type: :model do
     expect(article.visibility).to eq false
   end
 
+  it 'is not valid with a title of less than four characters' do
+    article = Article.new(title: "pan")
+    expect(article).to have(1).error_on(:title)
+    expect(article).not_to be_valid
+  end
+
+  it 'is not valid without the presence of a location' do
+    article = Article.new(title: "Panda")
+    expect(article).to have(1).error_on(:location)
+    expect(article).not_to be_valid
+  end
+
+  it 'is not valid without the presence of a image' do
+    article = Article.new(title: "Panda", location: "India")
+    expect(article).to have(1).error_on(:photo)
+    expect(article).not_to be_valid
+  end
 
 end
