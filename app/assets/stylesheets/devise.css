@@ -10,17 +10,6 @@
     font-weight: 700;
 }
 
-.log-in-form {
-  text-align: center;
-  width: 30%;
-}
-
-.sign-up-form {
-  text-align: center;
-  width: 30%;
-}
-
-
 .form-control {
   margin: 10px 0px 10px 0px;
 }
@@ -35,19 +24,4 @@
 
 .form-group .btn-default {
   padding: 6px 50px 6px 50px;
-}
-
-.edit-form {
-  text-align: center;
-  width: 30%;
-}
-
-.confirmation-form {
-  text-align: center;
-  width: 30%;
-}
-
-.new-password-form {
-  text-align: center;
-  width: 30%;
 }

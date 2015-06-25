@@ -211,7 +211,6 @@
  }
 
  .footer-menu li {
-   float: left;
    display: inline-block;
    margin: 5px 15px 5px 15px;
  }
@@ -239,7 +238,6 @@
  }
 
  .social-links li {
-   float: right;
  	display: inline-block;
  	margin: 5px;
  }
