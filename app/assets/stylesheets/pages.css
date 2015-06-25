@@ -1,0 +1,11 @@
+.static-page {
+    background-color: #095b7a;
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.static-page-heading {
+    margin-top: 0;
+    color: white;
+    font-weight: 700;
+}
