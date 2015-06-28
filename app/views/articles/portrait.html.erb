@@ -39,16 +39,23 @@
 
   <div id='map'>
   </div>
-  <h2>There should be a map above me</h2>
+  map above here
 
     <script>
       var map = new GMaps({
         div: '#map',
-        lat: -12.043333,
-        lng: -77.028333
+        lat: 51.607515,
+        lng: -0.438072,
+        map.addMarker({
+          lat: <%= @article.latitude %>,
+          lng: <%= @article.longitude %>,
+          title: <%= @article.title %>,
+          click: function(e) {
+            alert('You clicked this marker');
+          }
+        });
       });
     </script>
-
 
 <section class="container">
   <h3>Related Articles</h3>
@@ -61,7 +68,7 @@
 </section>
 
 <section class="container">
-  
+
   <%- disqus_thread @article.id %>
 
 </section>

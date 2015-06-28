@@ -10,6 +10,9 @@ class Article < ActiveRecord::Base
 
   acts_as_taggable
 
+  geocoded_by :location
+  after_validation :geocode
+
   IMAGE_ORIENTATION = %w[portrait landscape]
 
 end

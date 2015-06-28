@@ -22,17 +22,6 @@
     <p>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
   </div>
   <div class="col-sm-6 col-md-6">
-    <div id='map'>
-      <script>
-        $(document).ready(function(){
-          new GMaps({
-            div: '#map',
-            lat: -12.043333,
-            lng: -77.028333
-          });
-        });
-      </script>
-    </div>
 
   <section class="profile">
     <h3 class="profile-title">Photographer Profile</h3>
@@ -47,6 +36,30 @@
     </div>
   </div>
 </section>
+
+<div id='map'>
+</div>
+<h2>Landscape map</h2>
+
+<script>
+	var map;
+	$(document).ready(function(){
+		map = new GMaps({
+	  	div: '#map',
+	  	lat: 51.607515,
+	  	lng: -0.438072,
+	  	zoom: 2,
+	  	disableDefaultUI: true
+	  });
+    map.addMarker({
+      lat: <%= @article.latitude %>,
+      lng: <%= @article.longitude %>,
+      infoWindow: {
+        content: '<p><%= @article.title %> </p>'
+      }
+    });
+	});
+</script>
 
 <section class="container">
   <h3>Related Articles</h3>
