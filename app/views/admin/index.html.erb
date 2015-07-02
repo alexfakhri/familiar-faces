@@ -9,14 +9,14 @@
     </div>
 </section>
 
-<section class="published-articles">
+<section class="unpublished-articles">
     <div class="container">
       <h2>Unpublished Articles</h2>
       <% if @unpublished_articles.all.any? %>
       <% @unpublished_articles.all.each do |article| %>
       <div class="row">
-  <div class="col-xs-6 col-sm-7"><p>
-    <%= link_to article.title, article_path(article) %></p>
+  <div class="col-xs-6 col-sm-7 article-title">
+    <p><%= link_to article.title, article_path(article) %></p>
     </div>
   <div class="col-xs-6 col-sm-2">
     <%= best_in_place article, :visibility, as: :checkbox, collection: {true: "Published", false: "Not Published"} %>

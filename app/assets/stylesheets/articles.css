@@ -32,19 +32,25 @@
 }*/
 
 .profile img {
-  max-width: 50%;
+  max-width: 100%;
 }
 
-
-#map {
-  display: block;
-  width: 100rem;
-  height: 100rem;
-}
 
 .new-story {
   margin-top: 20px;
   text-align: center;
   width: 50%;
 
+}
+
+#map {
+  display: block;
+  width: 100%;
+  height: 300px;
+
+}
+
+.profile-bio {
+  text-align: left;
+  font-size: 14px;
 }

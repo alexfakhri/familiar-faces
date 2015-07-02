@@ -12,23 +12,25 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 user-avitar">
+    <div class="col-md-4 user-avitar">
       <%= image_tag @user.avatar.url(:medium), class: "img-responsive" %>
     </div>
-    <div class="col-xs-6 user-bio">
+    <div class="col-md-8 user-bio">
       <h4>Bio:</h4>
         <p><%= @user.bio %></p>
     </div>
   </div>
 </div>
 
+
 <div class="container related-articles">
-      <h4>Articles By <%= @user.first_name %> <%= @user.last_name %>: </h4>
+  <div class="row">
+    <h4>Articles By <%= @user.first_name %> <%= @user.last_name %>: </h4>
       <% @article.each do |article| %>
-      <div class="row">
         <div class="col-xs-6 col-sm-4">
           <%= link_to article.title, article_path(article) %>
           <%= image_tag article.photo.url(:homepage) %>
         </div>
       <% end %>
+    </div>
 </div>

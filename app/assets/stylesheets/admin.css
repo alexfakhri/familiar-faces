@@ -26,3 +26,11 @@
     color: white;
     font-weight: 700;
 }
+
+.published-articles p {
+  text-align: left;
+}
+
+.unpublished-articles p {
+  text-align: left;
+}

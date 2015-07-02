@@ -12,54 +12,59 @@
 
 <section class="landscape_layout container">
 
-
-  <%= image_tag @article.photo.url, class: "img-responsive" %>
+  <section>
+    <%= image_tag @article.photo.url, class: "img-responsive" %>
+  </section>
 
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
-    <p><%= @article.story %></p>
+    <p class="story"><%= @article.story %></p>
     <p><%= @article.location %></p>
     <p>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
   </div>
-  <div class="col-sm-6 col-md-6">
+  <div class="col-sm-6">
+
+    <div id='map'>
+
+    <h2>Landscape map</h2>
+
+    <script>
+    	var map;
+    	$(document).ready(function(){
+    		map = new GMaps({
+    	  	div: '#map',
+          lat: <%= @article.latitude %>,
+          lng: <%= @article.longitude %>,
+    	  	zoom: 2,
+    	  	disableDefaultUI: true
+    	  });
+        map.addMarker({
+          lat: <%= @article.latitude %>,
+          lng: <%= @article.longitude %>,
+          infoWindow: {
+            content: '<p><%= @article.title %> </p>'
+          }
+        });
+    	});
+    </script>
+
+    </div>
 
   <section class="profile">
     <h3 class="profile-title">Photographer Profile</h3>
       <p class="profile-name"><%= @article.user.first_name %> <%= @article.user.last_name %></p>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <p class="profile-bio"><%= @article.user.bio %></p>
-      </div
-      <div class="ol-xs-12 col-xs-6 col-sm-3">
-        <p class="profile-photo"><%= image_tag @article.user.avatar.url, class: "img-rounded" %></p>
+      <div class="col-xs-8 col-sm-8">
+        <p class="profile-bio"><%= truncate(@article.user.bio, :length => 200) %></p>
+      </div>
+      <div class="clearfix visible-xs-block"></div>
+      <div class="col-xs-4 col-sm-4">
+        <p class="profile-photo"><%= image_tag @article.user.avatar.url(:thumb), class: "img-responsive" %></p>
         </div>
       </section>
     </div>
   </div>
 </section>
 
-<div id='map'>
-</div>
-<h2>Landscape map</h2>
-
-<script>
-	var map;
-	$(document).ready(function(){
-		map = new GMaps({
-	  	div: '#map',
-	  	lat: 51.607515,
-	  	lng: -0.438072,
-	  	zoom: 2,
-	  	disableDefaultUI: true
-	  });
-    map.addMarker({
-      lat: <%= @article.latitude %>,
-      lng: <%= @article.longitude %>,
-      infoWindow: {
-        content: '<p><%= @article.title %> </p>'
-      }
-    });
-	});
-</script>
 
 <section class="container">
   <h3>Related Articles</h3>
