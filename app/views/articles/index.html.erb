@@ -1,25 +1,84 @@
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Uncovering the amazing stories of everyday people</h1>
+            <hr>
+            <a href="#articles-heading" class="btn btn-primary btn-xl">Explore Stories</a>
+            <a href="/about" class="btn btn-primary btn-xl">Find Out More</a>
+        </div>
+    </div>
+</header>
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="about-section-heading">About</h2>
+                <hr class="light">
+                <p class="text-faded">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</p>
+                <a href="/about" class="btn btn-default btn-xl">Find Out More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="articles-heading" id="articles-heading">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="articles-heading">Explore Stories</h2>
-                <hr class="light">
+                <hr class="dark">
             </div>
         </div>
     </div>
 </section>
 
 
+<!-- <section class="container article">
+    <% @articles.each do |article| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="article-image"><%= image_tag article.photo.url(:portrait) %></div>
+      </div>
+    <div class="col-xs-6 col-md-6">
+        <h3 class="article-title"><%= link_to article.title, article_path(article) %></h3>
+    </div>
+  </div>
+  <% end %>
+</section> -->
 
-<%= link_to 'Add a new story', new_article_path  %>
+<section class="container" id="stories">
+  <div class="transitions-enabled" id="articles-grid">
+    <% if @articles.all.any?  %>
+    <% @articles.each do |article| %>
+      <div class="box panel panel-default article-box">
+        <%= link_to (image_tag article.photo.url(:homepage)), article %>
+          <div class="article-box-title">
+            <div class="article-box-title-content">
+              <div class="article-title">
+                <%= link_to article.title, article_path(article) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% else %>
+        <h1>No articles yet</h1>
+    <% end %>
+  </div>
+</section>
 
-<% if @articles.all.any?  %>
+
+
+
+
+<!-- <% if @articles.all.any?  %>
   <% @articles.all.each do |article| %>
     <h2><%= link_to article.title, article_path(article) %></h2>
   <% end %>
 <% else %>
   <h1>No articles yet</h1>
-<% end %>
+<% end %> -->
 
 
 <div id="tag_cloud">

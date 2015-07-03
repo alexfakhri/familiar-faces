@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "home#index"
+  root "articles#index"
 
   get 'tags/:tag', to: 'articles#index', as: :tag
 

@@ -12,14 +12,19 @@
 
 
 .articles-heading {
-    background-color: #095b7a;
-    padding-top: 50px;
+    background-color: white;
+    padding-top: 30px;
     padding-bottom: 20px;
 }
 
+hr.dark {
+  border-color: #095b7a;
+}
+
+
 .articles-heading {
     margin-top: 0;
-    color: white;
+    color: #095b7a;
     font-weight: 700;
 }
 
@@ -53,4 +58,175 @@
 .profile-bio {
   text-align: left;
   font-size: 14px;
+}
+
+/*// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-image: url(http://s3.amazonaws.com/familiarfacesimagery/DSCF0355.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px;
+    text-align: center;
+}
+
+header .header-content .header-content-inner h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+header .header-content .header-content-inner hr {
+    margin: 30px auto;
+}
+
+@media(min-width:768px) {
+    header {
+        min-height: 100%;
+    }
+
+    header .header-content {
+        position: absolute;
+        top: 80%;
+        padding: 0 50px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    header .header-content .header-content-inner {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1000px;
+    }
+
+    header .btn-primary {
+      border-color: #095b7b;
+      color: #fff;
+      background-color: #1b80a6;
+      margin: 10px 10px 10px 10px;
+    }
+
+
+}
+
+.about {
+    background-color: #095b7a;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.about-section-heading {
+    margin-top: 0;
+    color: white;
+}
+
+
+/*.article {
+  border: 1px solid black;
+  height: 20rem;
+  margin: 1rem;
+}*/
+/*.article-title {
+  text-align: left;
+}
+.article-image {
+  text-align: center;
+}*/
+/*.story {
+  width: 40%;
+  margin: 1rem;
+  border: 1px solid black;
+}
+.map, .profile {
+  margin: 1rem;
+  width: 40%;
+  margin: 1rem;
+  border: 1px solid black;
+}*/
+
+#articles-grid {
+  margin: 0 auto;
+  width: 100%;
+  .box {
+	  margin: 10px;
+	  width: 350px;
+	  text-align: center;
+	  img {
+	  	max-width: 100%;
+	  	height: auto;
+	  }
+	}
+}
+
+.panel {
+  margin: 0px 0px 0px 0px;
+}
+
+
+
+.article-box .article-box-title {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    background: #095b7a;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+.article-box .article-box-title .article-box-title-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+.article-box .article-box-title .article-box-title-content a {
+    color: white;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.article-box .article-box-title .article-box-title-content,
+.article-box .article-box-title .article-box-title-content .article-title {
+    padding: 0 15px;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+.article-box .article-box-caption .article-box-title-content {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.article-box .article-box-title .article-box-title-content .article-title {
+    font-size: 18px;
+}
+
+.article-box:hover .article-box-title {
+    opacity: 0.5;
 }
