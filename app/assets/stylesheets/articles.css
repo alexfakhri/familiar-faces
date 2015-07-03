@@ -12,7 +12,7 @@
 
 
 .articles-heading {
-    background-color: white;
+    background-color: #095b7a;
     padding-top: 30px;
     padding-bottom: 20px;
 }
@@ -24,8 +24,20 @@ hr.dark {
 
 .articles-heading {
     margin-top: 0;
+    color: white;
+    font-weight: 700;
+}
+
+.home-page-articles-heading {
+    margin-top: 0;
     color: #095b7a;
     font-weight: 700;
+}
+
+.home-page-articles-heading {
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .portrait_layout img {
@@ -70,7 +82,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url(http://s3.amazonaws.com/familiarfacesimagery/DSCF0355.jpg);
+    background-image: url(https://s3.amazonaws.com/familiarfacesimagery/DSCF0355.jpg);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
