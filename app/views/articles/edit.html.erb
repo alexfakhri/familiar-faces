@@ -10,16 +10,31 @@
 </section>
 
 
-<%= form_for [@user, @article], html: {multipart: true} do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :story %>
-  <%= f.text_area :story %>
-  <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-  <%= f.text_field :tag_list %>
-  <%= f.file_field :photo %>
-  <%= f.select :image_orientation, Article::IMAGE_ORIENTATION %>
-  <%= f.submit "Update Story" %>
-<% end %>
+<div class="container new-story">
+  <div class="form-group">
+
+    <%= form_for [@user, @article], html: {multipart: true} do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "form-control" %>
+
+      <%= f.label :story %>
+      <%= f.text_area :story, class: "form-control", rows: "5" %>
+
+      <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+      <%= f.text_field :tag_list, class: "form-control" %>
+
+      <%= f.file_field :photo, class: "form-control" %>
+
+      <p>Please tell us the image orientation:</p>
+      <%= f.select :image_orientation, Article::IMAGE_ORIENTATION, class: "form-control" %>
+
+      <div class="form-group">
+        <%= f.submit "Update Story", class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>

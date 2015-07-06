@@ -12,7 +12,7 @@
 
 
 .articles-heading {
-    background-color: #095b7a;
+    background-color: white;
     padding-top: 30px;
     padding-bottom: 20px;
 }
@@ -24,7 +24,7 @@ hr.dark {
 
 .articles-heading {
     margin-top: 0;
-    color: white;
+    color: #095b7a;
     font-weight: 700;
 }
 
@@ -70,6 +70,10 @@ hr.dark {
 .profile-bio {
   text-align: left;
   font-size: 14px;
+}
+
+#article_image_orientation{
+  margin: 0px 0px 10px 0px;
 }
 
 /*// Place all the styles related to the home controller here.
