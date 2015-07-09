@@ -12,8 +12,8 @@
 
 
 .articles-heading {
-    background-color: white;
-    padding-top: 30px;
+    background-color: #095b7a;
+    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -24,7 +24,7 @@ hr.dark {
 
 .articles-heading {
     margin-top: 0;
-    color: #095b7a;
+    color: white;
     font-weight: 700;
 }
 

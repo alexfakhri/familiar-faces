@@ -266,3 +266,8 @@
  	border: 1px solid rgba(255, 255, 255, .5);
  	color: rgba(255, 255, 255, .8);
  }
+
+.mailing-list {
+  background-color: #095b7a;
+  text-align: center;
+}
