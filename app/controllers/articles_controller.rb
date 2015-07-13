@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
         .where(visibility: true)
         .tagged_with(params[:tag])
     else
-      @articles = Article.where(visibility: true)
+      @articles = Article.where(visibility: true).order('updated_at DESC')
     end
   end
 
@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
     end
 
     @related_articles = Article
-      .where(visibility: true)
+      .where(visibility: true, image_orientation: 'landscape').limit(4)
       .joins(:taggings)
       .where('articles.id != ?', @article.id)
       .where(taggings: { tag_id: @article.tag_ids })

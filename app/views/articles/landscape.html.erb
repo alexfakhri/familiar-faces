@@ -63,20 +63,25 @@
       </section>
     </div>
   </div>
-</section>
 
 
-<section class="container">
-  <h3>Related Articles</h3>
-  <% @related_articles.each do | related_article | %>
-    <% if !related_article.nil? %>
-    <%= link_to related_article.title, article_path(related_article) %>
-    <%= image_tag related_article.photo.url(:portrait) %>
+  <section class="container">
+    <h3>Related Articles</h3>
+    <% @related_articles.each do | related_article | %>
+      <% if !related_article.nil? %>
+    <div class="row">
+    <div class="col-md-3">
+      <%= image_tag related_article.photo.url, class: "img-responsive" %>
+      <%= link_to related_article.title, article_path(related_article) %>
+      <% end %>
+    </div>
     <% end %>
-  <% end %>
-</section>
+  </div>
+  </section>
+
 
 <section class="container">
   <%- raw disqus_thread @article.id %>
+</section>
 
 </section>
