@@ -81,11 +81,6 @@ feature 'article' do
       expect(page).to have_content 'South America'
     end
 
-    scenario 'after approval displays tags on article index page' do
-      visit '/articles'
-      expect(page).to have_content 'South America'
-    end
-
   end
 
   context 'viewing articles' do
