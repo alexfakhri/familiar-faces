@@ -6,7 +6,7 @@ FactoryGirl.define do
     story                 "A night out in Rio"
     location              "Brazil"
     visibility            true
-    image_orientation     "portrait"
+    image_orientation     "landscape"
     photo {fixture_file_upload( File.join(Rails.root, 'spec', 'helpers', 'images', 'panda.jpg'), 'image/jpeg')}
 
     trait :south_america do

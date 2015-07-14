@@ -134,14 +134,14 @@ feature 'article' do
     end
 
     scenario 'when selecting portrait it should render the portrait template' do
-      article = create(:article, :south_america)
+      article = create(:article, :south_america, image_orientation: "portrait")
       visit '/articles'
       click_link "Panda goes to Brazil"
       expect(page).to have_css(".portrait_layout")
     end
 
     scenario 'when selecting portrait it should render the portrait template' do
-      article = create(:article, :south_america, image_orientation: "landscape")
+      article = create(:article, :south_america)
       visit '/articles'
       click_link "Panda goes to Brazil"
       expect(page).to have_css(".landscape_layout")
