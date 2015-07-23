@@ -91,7 +91,7 @@ feature 'article' do
       visit '/articles'
       click_link "Panda goes to Brazil"
       expect(page).to have_content "Panda goes to Brazil"
-      expect(current_path).to eq "/articles/#{article.id}"
+      expect(current_path).to eq "/articles/panda-goes-to-brazil"
     end
 
   end

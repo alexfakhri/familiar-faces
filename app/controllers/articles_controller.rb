@@ -34,12 +34,12 @@ class ArticlesController < ApplicationController
     @user = current_user
 
     if @article.visibility == true
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     elsif @user == nil
       flash[:notice] = 'Article not published yet'
       redirect_to '/'
     elsif @user.role == "admin"
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     else
       flash[:notice] = 'Article not published yet'
       redirect_to '/'
