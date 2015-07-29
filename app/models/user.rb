@@ -17,4 +17,11 @@ class User < ActiveRecord::Base
                                         :email => :email,
                                         :fields => {:FNAME => :first_name, :LNAME => :last_name}}
 
+  extend FriendlyId
+  friendly_id :full_name, use: [:slugged, :finders]
+
+  def full_name
+     "#{first_name}-#{last_name}"
+  end
+
 end
