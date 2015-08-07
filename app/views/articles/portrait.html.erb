@@ -45,6 +45,7 @@
         <p class="profile-name"><%= @article.user.first_name %> <%= @article.user.last_name %></p>
           <div class="col-xs-8 col-sm-8">
             <p class="profile-bio"><%= truncate(@article.user.bio, :length => 200) %></p>
+            <p class="link-to-profile"><%= link_to "Read more", user_path(@article.user) %></p>
           </div>
           <div class="col-xs-4 col-sm-4">
             <p class="profile-photo"><%= image_tag @article.user.avatar.url(:thumb), class: "img-responsive" %></p>

@@ -120,6 +120,13 @@ feature 'article' do
       expect(page).to have_content "Happy Panda"
     end
 
+    scenario 'lets a user view the profile page of a photographer' do
+      visit '/articles'
+      click_link "Panda goes to Brazil"
+      click_link "Read more"
+      expect(current_path).to eq '/users/happy-panda'
+    end
+
   end
 
   context 'selecting image orientation and rendering templates' do
