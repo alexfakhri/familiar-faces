@@ -22,13 +22,13 @@
     <p><%= @article.location %></p>
     <p>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
     <!-- Twitter -->
-    <a href="http://twitter.com/home?status=<%= @article.title %>" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+    <a href="http://twitter.com/home?status=<%= @article.title %>" title="Share on Twitter" target="_blank" class="share btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
      <!-- Facebook -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @article.title %>" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @article.title %>" title="Share on Facebook" target="_blank" class="share btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
     <!-- Google+ -->
-    <a href="https://plus.google.com/share?url=<%= @article.title %>" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+    <a href="https://plus.google.com/share?url=<%= @article.title %>" title="Share on Google+" target="_blank" class="share btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
     <!-- StumbleUpon -->
-    <a href="http://www.stumbleupon.com/submit?url=<%= @article.title %>" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
+    <a href="http://www.stumbleupon.com/submit?url=<%= @article.title %>" title="Share on StumbleUpon" target="_blank" data-placement="top" class="share btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
   </div>
   <div class="col-sm-6">
 
