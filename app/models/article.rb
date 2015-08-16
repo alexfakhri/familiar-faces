@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
-  has_attached_file :photo, :styles => { :homepage => "300x500>", :portrait => "585>", :landscape => "500x300>" }, :default_url => "/images/:style/panda.jpg"
+  has_attached_file :photo, :styles => { :homepage => "300x500>", :portrait => "585>", :landscape => "500x300>" }, :default_url => "/images/:style/panda.jpg", :s3_protocol => :https
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   validates :title, length: {minimum: 4}
