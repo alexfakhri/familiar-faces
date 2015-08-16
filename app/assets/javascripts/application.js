@@ -42,28 +42,28 @@ $(document).ready(ready);
 $(document).on('page:load', ready);
 
 // MENU BAR JAVASCRIPT
-// var ready;
-// var ready = function() {
-//   (function($) {
-//       "use strict"; // Start of use strict
-//
-//       // Closes the Responsive Menu on Menu Item Click
-//       $('.navbar-collapse ul li a').click(function() {
-//           $('.navbar-toggle:visible').click();
-//       });
-//
-//       // Offset for Main Navigation
-//       $('#mainNav').affix({
-//           offset: {
-//               top: 50
-//           }
-//       })
-//
-//   })(jQuery); // End of use strict
-// };
+var ready;
+var ready = function() {
+  (function($) {
+      "use strict"; // Start of use strict
 
-// $(document).ready(ready);
-// $(document).on('page:load', ready);
+      // Closes the Responsive Menu on Menu Item Click
+      // $('.navbar-collapse ul li a').click(function() {
+      //     $('.navbar-toggle:visible').click();
+      // });
+
+      // Offset for Main Navigation
+      $('#mainNav').affix({
+          offset: {
+              top: 50
+          }
+      })
+
+  })(jQuery); // End of use strict
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 // $('a.page-scroll').bind('click', function(event) {
 //         var $anchor = $(this);
