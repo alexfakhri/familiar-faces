@@ -147,10 +147,10 @@
 
   <section class="container">
     <h3>Related Articles</h3>
+    <div class="row">
     <% @related_articles.each do | related_article | %>
       <% if !related_article.nil? %>
-    <div class="row">
-    <div class="col-md-3">
+    <div class="col-xs-6 col-sm-3">
       <%= image_tag related_article.photo.url, class: "img-responsive" %>
       <%= link_to related_article.title, article_path(related_article) %>
       <% end %>
