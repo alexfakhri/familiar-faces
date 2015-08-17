@@ -33,49 +33,25 @@
     </div>
 </section>
 
-
-<!-- <section class="container article">
-    <% @articles.each do |article| %>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class="article-image"><%= image_tag article.photo.url(:portrait) %></div>
-      </div>
-    <div class="col-xs-6 col-md-6">
-        <h3 class="article-title"><%= link_to article.title, article_path(article) %></h3>
-    </div>
-  </div>
-  <% end %>
-</section> -->
-
 <section class="container" id="stories">
   <div class="transitions-enabled" id="articles-grid">
     <% if @articles.all.any?  %>
-    <% @articles.each do |article| %>
-      <div class="box panel panel-default article-box">
-        <%= link_to (image_tag article.photo.url(:homepage)), article %>
-          <div class="article-box-title">
-            <div class="article-box-title-content">
-              <div class="article-title">
-                <%= link_to article.title, article_path(article) %>
+      <% @articles.each do |article| %>
+        <%= link_to article_path(article) do %>
+          <div class="box panel panel-default article-box">
+            <%= image_tag article.photo.url(:homepage) %>
+              <div class="article-box-title">
+                <div class="article-box-title-content">
+                  <div class="article-title">
+                    <%= article.title %>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
+          <% end %>
+        <% end %>
       <% else %>
         <h1>No articles yet</h1>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 </section>
-
-
-
-
-
-<!-- <% if @articles.all.any?  %>
-  <% @articles.all.each do |article| %>
-    <h2><%= link_to article.title, article_path(article) %></h2>
-  <% end %>
-<% else %>
-  <h1>No articles yet</h1>
-<% end %> -->

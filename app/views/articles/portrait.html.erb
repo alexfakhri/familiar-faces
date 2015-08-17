@@ -161,7 +161,9 @@
   <div class="row">
   <div class="col-md-3">
     <%= image_tag related_article.photo.url, class: "img-responsive" %>
+    <div class="related-articles-title">
     <%= link_to related_article.title, article_path(related_article) %>
+  </div>
     <% end %>
   </div>
   <% end %>

@@ -23,38 +23,18 @@
 </section>
 
 
-<div class="container related-articles">
+<div class="container photographer-articles">
   <div class="row">
-    <h4>Articles By <%= @user.first_name %> <%= @user.last_name %>: </h4>
+    <h3>Stories By <%= @user.first_name %>: </h3>
       <% @article.each do |article| %>
         <div class="col-xs-6 col-sm-3">
-          <div class="clearfix visible-xs-block"></div>
-          <%= link_to article.title, article_path(article) %>
-          <%= image_tag article.photo.url(:homepage), class: "img-responsive" %>
+          <div class="photographer-article-image">
+            <%= image_tag article.photo.url(:homepage), class: "img-responsive" %>
+          </div>
+          <div class="photographer-article-title">
+            <%= link_to article.title, article_path(article) %>
+          </div>
         </div>
       <% end %>
     </div>
 </div>
-
-
-<!-- <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="https://s3.amazonaws.com/familiarfacesimagery/DSCF0355.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-              </div>
-            </div>
-          </section> -->

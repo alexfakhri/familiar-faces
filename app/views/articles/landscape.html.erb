@@ -12,29 +12,21 @@
 
 <section class="landscape_layout container">
 
-  <section>
+  <section class="landscape-layout-photo">
     <%= image_tag @article.photo.url, class: "img-responsive" %>
   </section>
+
 
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
     <p class="story"><%= @article.story %></p>
     <p><%= @article.location %></p>
     <p>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-    <!-- Twitter -->
-    <a href="http://twitter.com/home?status=<%= @article.title %>" title="Share on Twitter" target="_blank" class="share btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
-     <!-- Facebook -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @article.title %>" title="Share on Facebook" target="_blank" class="share btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-    <!-- Google+ -->
-    <a href="https://plus.google.com/share?url=<%= @article.title %>" title="Share on Google+" target="_blank" class="share btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
-    <!-- StumbleUpon -->
-    <a href="http://www.stumbleupon.com/submit?url=<%= @article.title %>" title="Share on StumbleUpon" target="_blank" data-placement="top" class="share btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
   </div>
+
   <div class="col-sm-6">
 
     <div id='map'>
-
-    <h2>Landscape map</h2>
 
     <script>
     	var map;
@@ -72,6 +64,19 @@
       </section>
     </div>
   </div>
+
+  <section class="share-buttons">
+    <!-- Twitter -->
+    <a href="http://twitter.com/home?status=<%= @article.title %>" title="Share on Twitter" target="_blank" class="share btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+     <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @article.title %>" title="Share on Facebook" target="_blank" class="share btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+    <!-- Google+ -->
+    <a href="https://plus.google.com/share?url=<%= @article.title %>" title="Share on Google+" target="_blank" class="share btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+    <!-- StumbleUpon -->
+    <a href="http://www.stumbleupon.com/submit?url=<%= @article.title %>" title="Share on StumbleUpon" target="_blank" data-placement="top" class="share btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
+  </section>
+
+
 
   <div class="container mailing-list">
     <div class="row">
@@ -152,7 +157,9 @@
       <% if !related_article.nil? %>
     <div class="col-xs-6 col-sm-3">
       <%= image_tag related_article.photo.url, class: "img-responsive" %>
+      <div class="related-articles-title">
       <%= link_to related_article.title, article_path(related_article) %>
+    </div>
       <% end %>
     </div>
     <% end %>

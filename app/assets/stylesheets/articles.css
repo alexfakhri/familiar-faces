@@ -2,19 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-#tag_cloud {
+/*#tag_cloud {
   width: 400px;
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
-}
+}*/
 
 
 .articles-heading {
     background-color: #095b7a;
     padding-top: 50px;
     padding-bottom: 20px;
+    text-transform: capitalize;
 }
 
 hr.dark {
@@ -230,22 +231,24 @@ header .header-content .header-content-inner hr {
 .article-box .article-box-title .article-box-title-content .article-title {
     padding: 0 15px;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 400;
 }
 
-.article-box .article-box-caption .article-box-title-content {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 600;
-}
 
 .article-box .article-box-title .article-box-title-content .article-title {
     font-size: 18px;
 }
 
 .article-box:hover .article-box-title {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .share {
   padding: 0px 10px 0px 10px;
+}
+
+.related-articles-title {
+  text-transform: capitalize;
 }
