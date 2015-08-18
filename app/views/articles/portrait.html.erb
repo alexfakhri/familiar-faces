@@ -156,9 +156,9 @@
 
 <section class="container">
   <h3>Related Articles</h3>
+  <div class="row">
   <% @related_articles.each do | related_article | %>
     <% if !related_article.nil? %>
-  <div class="row">
   <div class="col-md-3">
     <%= image_tag related_article.photo.url, class: "img-responsive" %>
     <div class="related-articles-title">
